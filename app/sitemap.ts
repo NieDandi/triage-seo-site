@@ -1,22 +1,39 @@
-import type { MetadataRoute } from "next";
-import { symptoms } from "../data/symptoms";
-import { departments } from "../data/departments";
+import { MetadataRoute } from "next";
+import { symptoms } from "@/data/symptoms";
+import { departments } from "@/data/departments";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
+  const baseUrl = "https://triage-seo-site.vercel.app";
+
+  const symptomPages = symptoms.map((s) => ({
+    url: `${baseUrl}/symptom/${s.slug}`,
+    lastModified: new Date(),
+  }));
+
+  const departmentPages = departments.map((d) => ({
+    url: `${baseUrl}/department/${d.slug}`,
+    lastModified: new Date(),
+  }));
 
   return [
-    { url: `${base}/`, lastModified: new Date() },
-    { url: `${base}/triage`, lastModified: new Date() },
-    { url: `${base}/symptoms`, lastModified: new Date() },
-    { url: `${base}/departments`, lastModified: new Date() },
-    ...departments.map((d) => ({
-      url: `${base}/department/${d.slug}`,
+    {
+      url: baseUrl,
       lastModified: new Date(),
-    })),
-    ...symptoms.map((s) => ({
-      url: `${base}/symptom/${s.slug}`,
+    },
+    {
+      url: `${baseUrl}/symptoms`,
       lastModified: new Date(),
-    })),
+    },
+    {
+      url: `${baseUrl}/departments`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/triage`,
+      lastModified: new Date(),
+    },
+    ...symptomPages,
+    ...departmentPages,
   ];
 }
