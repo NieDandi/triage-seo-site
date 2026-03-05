@@ -302,6 +302,66 @@ redFlags:RF("自伤想法"),
 prep:PREP("记录情绪变化"),
 faqs:makeFaq("抑郁"),
 tags:["心理"]
+},
+
+{
+slug: "dizziness",
+title: "头晕挂什么科",
+summary: "头晕常见于低血压、贫血、颈椎问题或神经系统疾病。",
+recommended: ["神经内科"],
+alternatives: ["心内科", "耳鼻喉科"],
+redFlags: ["突然剧烈头晕", "伴随肢体无力", "意识模糊"],
+prep: ["记录头晕发生时间", "是否伴随恶心或视物旋转"],
+faqs: [{q:"头晕需要检查什么？",a:"医生可能建议血压、血常规或脑部影像检查"}],
+tags:["神经"]
+},
+
+{
+slug: "sore-throat",
+title: "喉咙痛挂什么科",
+summary: "喉咙痛常见于咽炎、扁桃体炎或感冒。",
+recommended:["耳鼻喉科"],
+alternatives:["呼吸内科"],
+redFlags:["吞咽困难", "持续高烧"],
+prep:["记录疼痛持续时间"],
+faqs:[{q:"喉咙痛多久需要就医？",a:"若超过3天或伴随高烧建议就医"}],
+tags:["耳鼻喉"]
+},
+
+{
+slug: "nosebleed",
+title: "鼻子出血挂什么科",
+summary:"鼻出血常见于鼻腔干燥、鼻炎或血压升高。",
+recommended:["耳鼻喉科"],
+alternatives:["急诊科"],
+redFlags:["出血持续不止","大量出血"],
+prep:["记录出血时间"],
+faqs:[{q:"鼻出血需要做检查吗？",a:"反复出血建议检查鼻腔或血压"}],
+tags:["耳鼻喉"]
+},
+
+{
+slug:"ear-ringing",
+title:"耳鸣挂什么科",
+summary:"耳鸣常见于听力损伤、耳部疾病或压力。",
+recommended:["耳鼻喉科"],
+alternatives:["神经内科"],
+redFlags:["突然听力下降"],
+prep:["记录耳鸣持续时间"],
+faqs:[{q:"耳鸣可以自愈吗？",a:"部分耳鸣可以缓解，但持续耳鸣建议就医"}],
+tags:["耳鼻喉"]
+},
+
+{
+slug:"blurred-vision",
+title:"视力模糊挂什么科",
+summary:"视力模糊可能与近视、眼部疾病或神经问题有关。",
+recommended:["眼科"],
+alternatives:["神经内科"],
+redFlags:["突然视力下降","视野缺损"],
+prep:["记录症状开始时间"],
+faqs:[{q:"视力模糊需要检查什么？",a:"医生可能建议视力或眼底检查"}],
+tags:["眼科"]
 }
 
 ];

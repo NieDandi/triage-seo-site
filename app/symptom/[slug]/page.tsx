@@ -1,3 +1,4 @@
+// app/symptom/[slug]/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -39,13 +40,24 @@ export default async function SymptomDetailPage({
     new Set([...(item.recommended ?? []), ...(item.alternatives ?? [])])
   );
 
-  const relatedDepts = departments.filter((d) => deptNames.includes(d.name)).slice(0, 6);
+  const relatedDepts = departments
+    .filter((d) => deptNames.includes(d.name))
+    .slice(0, 6);
 
   // —— 相关症状：同标签
   const relatedSymptoms = symptoms
     .filter((s) => s.slug !== item.slug)
     .filter((s) => s.tags?.some((t: string) => item.tags?.includes(t)))
     .slice(0, 12);
+
+  // —— GEO：AI 友好摘要（让 AI 一眼读懂“结论 + 急诊信号 + 免责声明”）
+  const aiSummary = `${item.title}：通常建议优先挂${(item.recommended ?? []).join(
+    "、"
+  )}${(item.alternatives ?? []).length ? `；也可考虑${(item.alternatives ?? []).join("、")}` : ""}。${
+    (item.redFlags ?? []).length
+      ? `如出现${(item.redFlags ?? []).join("、")}等危险信号，请优先急诊或尽快就医。`
+      : "如症状严重或快速加重，请尽快就医。"
+  }本页面仅用于导诊分流与就诊准备，不提供诊断与治疗方案。`;
 
   // —— JSON-LD：MedicalSymptom + FAQPage（如果有）
   const symptomJsonLd = {
@@ -73,11 +85,24 @@ export default async function SymptomDetailPage({
         }
       : null;
 
+  // （可选加强）把 AI Summary 也用 WebPage 的结构化数据暴露给搜索/AI
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: item.title,
+    description: aiSummary,
+    url: `/symptom/${item.slug}`,
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(symptomJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       {faqJsonLd ? (
         <script
@@ -92,10 +117,23 @@ export default async function SymptomDetailPage({
           <h1 className="text-3xl font-semibold">{item.title}</h1>
           <p className="text-slate-600">{item.summary}</p>
 
+          {/* ✅ GEO：AI Summary Block（症状页核心） */}
+          <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 space-y-2">
+            <div className="text-sm font-semibold text-emerald-900">
+              快速结论（可直接引用）
+            </div>
+            <div className="text-sm text-slate-800 leading-6">{aiSummary}</div>
+            <div className="text-xs text-slate-600">
+              提示：如出现胸痛、呼吸困难、意识改变、持续高热等，请优先急诊或尽快就医。
+            </div>
+          </section>
+
           {/* 重要：红色急诊提示 */}
           {Array.isArray(item.redFlags) && item.redFlags.length > 0 ? (
             <div className="rounded-2xl border border-red-200 bg-red-50 p-4">
-              <div className="text-lg font-semibold text-red-700">何时需要急诊（重点）</div>
+              <div className="text-lg font-semibold text-red-700">
+                何时需要急诊（重点）
+              </div>
               <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-slate-800">
                 {item.redFlags.map((x: string) => (
                   <li key={x}>{x}</li>
