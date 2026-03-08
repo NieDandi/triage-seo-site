@@ -1,75 +1,55 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { uniqueSymptoms } from "@/data/symptoms";
+import { symptoms } from "@/data/symptoms";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "症状目录｜挂什么科",
   description: "按症状快速查找：挂什么科、何时急诊、就诊准备（仅导诊分流）。",
 };
 
-function getSiteUrl() {
-  // 推荐你在 Vercel/环境变量里设置：NEXT_PUBLIC_SITE_URL=https://xxx.com
-  const u = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (!u) return ""; // 没配就退化成相对路径
-  return u.endsWith("/") ? u.slice(0, -1) : u;
-}
-
-function getAllTags(symptoms: any[]): string[] {
+function getAllTags(symptomList: typeof symptoms): string[] {
   const set = new Set<string>();
-  for (const s of symptoms) {
-    const tags = Array.isArray(s?.tags) ? s.tags : [];
-    for (const t of tags) {
-      if (typeof t === "string" && t.trim()) set.add(t.trim());
-    }
+  for (const s of symptomList) {
+    for (const t of s.tags) set.add(t);
   }
   return Array.from(set).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
 }
 
-export default function SymptomsPage({
+export default async function SymptomsPage({
   searchParams,
 }: {
-  searchParams?: { q?: string; tag?: string };
+  searchParams: Promise<{ q?: string; tag?: string }>;
 }) {
-  const symptoms = uniqueSymptoms();
+  const sp = await searchParams;
+  const q = (sp.q ?? "").trim();
+  const tag = (sp.tag ?? "").trim();
 
-  const q = (searchParams?.q ?? "").trim();
-  const tag = (searchParams?.tag ?? "").trim();
+  // 这里直接用全部 symptoms，不做去重
+  const allSymptoms = symptoms;
 
-  const tags = getAllTags(symptoms);
+  const tags = getAllTags(allSymptoms);
 
-  const qLower = q.toLocaleLowerCase();
-
-  const filtered = symptoms.filter((s) => {
-    const title = String(s?.title ?? "");
-    const summary = String(s?.summary ?? "");
-    const sTags: string[] = Array.isArray(s?.tags) ? s.tags : [];
-
+  const filtered = allSymptoms.filter((s) => {
     const hitQ =
       !q ||
-      title.toLocaleLowerCase().includes(qLower) ||
-      summary.toLocaleLowerCase().includes(qLower) ||
-      sTags.some((t) => String(t).toLocaleLowerCase().includes(qLower));
+      s.title.toLowerCase().includes(q.toLowerCase()) ||
+      s.summary.toLowerCase().includes(q.toLowerCase()) ||
+      s.tags.some((t) => t.toLowerCase().includes(q.toLowerCase()));
 
-    const hitTag = !tag || sTags.includes(tag);
-
+    const hitTag = !tag || s.tags.includes(tag);
     return hitQ && hitTag;
   });
 
-  // —— GEO：AI 友好摘要（给 AI 一眼读懂全站主题）
-  const aiSummary = `本网站用于“导诊分流”：用户按症状查找推荐挂号科室，并提供急诊危险信号提示、就诊准备与常见问答（不提供诊断与治疗方案）。当前收录症状条目数：${symptoms.length}。`;
+  const aiSummary = `本网站用于“导诊分流”：用户按症状查找推荐挂号科室，并提供急诊危险信号提示、就诊准备与常见问答（不提供诊断与治疗方案）。当前收录症状条目数：${allSymptoms.length}。`;
 
-  const siteUrl = getSiteUrl();
-
-  // —— Schema：ItemList（结构化给搜索引擎/AI）
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "症状目录（挂什么科）",
-    itemListElement: filtered.slice(0, 200).map((s, idx) => ({
+    itemListElement: filtered.slice(0, 500).map((s, idx) => ({
       "@type": "ListItem",
       position: idx + 1,
       name: s.title,
-      url: siteUrl ? `${siteUrl}/symptom/${s.slug}` : `/symptom/${s.slug}`,
+      url: `https://triage-seo-site.vercel.app/symptom/${s.slug}`,
     })),
   };
 
@@ -87,7 +67,6 @@ export default function SymptomsPage({
             通过搜索或标签筛选，快速进入症状页（仅导诊分流）。
           </p>
 
-          {/* ✅ GEO：AI Summary Block（全站入口） */}
           <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-4 space-y-2">
             <div className="text-sm font-semibold text-cyan-900">
               快速说明（可直接引用）
@@ -169,9 +148,7 @@ export default function SymptomsPage({
 
         <section className="space-y-2">
           <div className="text-sm text-slate-600">
-            共{" "}
-            <span className="font-medium text-slate-900">{filtered.length}</span>{" "}
-            条结果
+            共 <span className="font-medium text-slate-900">{filtered.length}</span> 条结果
             {q ? (
               <>
                 ，关键词：<span className="font-medium">{q}</span>
@@ -194,7 +171,7 @@ export default function SymptomsPage({
                 <div className="text-lg font-semibold">{s.title}</div>
                 <div className="text-sm text-slate-600 mt-1">{s.summary}</div>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {(Array.isArray(s.tags) ? s.tags : []).slice(0, 4).map((t: string) => (
+                  {s.tags.slice(0, 4).map((t) => (
                     <span
                       key={t}
                       className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700"
