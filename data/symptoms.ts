@@ -1251,6 +1251,126 @@ export const symptoms: SymptomItem[] = [
         tags: ["心脏"]
     },
 
+    {
+        slug: "sneezing",
+        title: "打喷嚏挂什么科",
+        summary: "打喷嚏常见于感冒或过敏性鼻炎。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["持续高烧", "严重鼻塞"],
+        prep: ["记录症状持续时间"],
+        faqs: [{ q: "打喷嚏需要治疗吗？", a: "轻微症状可观察，严重或持续建议就医。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "throat-dryness",
+        title: "喉咙干挂什么科",
+        summary: "喉咙干可能与咽炎或环境干燥有关。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["吞咽困难"],
+        prep: ["记录持续时间"],
+        faqs: [{ q: "喉咙干需要检查吗？", a: "若持续不缓解建议就医。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "neck-pain",
+        title: "脖子痛挂什么科",
+        summary: "脖子痛常见于颈椎劳损或肌肉紧张。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["肢体麻木"],
+        prep: ["记录疼痛时间"],
+        faqs: [{ q: "脖子痛需要拍片吗？", a: "医生可能建议X光检查。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "shoulder-pain",
+        title: "肩膀痛挂什么科",
+        summary: "肩膀痛可能与肌肉劳损或肩周炎有关。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["剧烈疼痛"],
+        prep: ["记录疼痛位置"],
+        faqs: [{ q: "肩膀痛需要检查吗？", a: "医生可能建议影像检查。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "arm-numbness",
+        title: "手臂发麻挂什么科",
+        summary: "手臂发麻可能与神经压迫或颈椎问题有关。",
+        recommended: ["神经内科"],
+        alternatives: ["骨科"],
+        redFlags: ["肢体无力"],
+        prep: ["记录症状出现时间"],
+        faqs: [{ q: "手臂发麻需要检查吗？", a: "医生可能建议神经检查。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "leg-pain",
+        title: "腿疼挂什么科",
+        summary: "腿疼可能与肌肉损伤或血管问题有关。",
+        recommended: ["骨科"],
+        alternatives: ["血管外科"],
+        redFlags: ["严重肿胀"],
+        prep: ["记录疼痛部位"],
+        faqs: [{ q: "腿疼需要检查吗？", a: "医生可能建议影像检查。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "foot-pain",
+        title: "脚痛挂什么科",
+        summary: "脚痛可能与运动损伤或足底筋膜炎有关。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["严重肿胀"],
+        prep: ["记录疼痛位置"],
+        faqs: [{ q: "脚痛需要检查吗？", a: "医生可能建议X光检查。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "memory-loss",
+        title: "记忆力下降挂什么科",
+        summary: "记忆力下降可能与压力或神经系统问题有关。",
+        recommended: ["神经内科"],
+        alternatives: ["精神科"],
+        redFlags: ["意识混乱"],
+        prep: ["记录症状持续时间"],
+        faqs: [{ q: "记忆力下降需要检查吗？", a: "医生可能建议神经检查。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "difficulty-breathing",
+        title: "呼吸费力挂什么科",
+        summary: "呼吸费力可能与肺部或心脏问题有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["心内科"],
+        redFlags: ["严重呼吸困难"],
+        prep: ["记录发作时间"],
+        faqs: [{ q: "呼吸费力需要检查吗？", a: "医生可能建议胸片检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "eye-redness",
+        title: "眼睛发红挂什么科",
+        summary: "眼睛发红可能由结膜炎或眼部感染引起。",
+        recommended: ["眼科"],
+        alternatives: ["急诊科"],
+        redFlags: ["剧烈眼痛"],
+        prep: ["避免揉眼"],
+        faqs: [{ q: "眼睛发红需要治疗吗？", a: "持续不缓解建议就医。" }],
+        tags: ["眼科"]
+    },
+
 ];
 
 export function uniqueSymptoms() {
