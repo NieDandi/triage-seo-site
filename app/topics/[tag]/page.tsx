@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { uniqueSymptoms } from "../../../data/symptoms";
+import { symptoms } from "../../../data/symptoms";
 
 export function generateStaticParams() {
   const set = new Set<string>();
-  for (const s of uniqueSymptoms()) {
+  for (const s of symptoms) {
     for (const t of s.tags ?? []) set.add(t);
   }
   return Array.from(set).map((tag) => ({ tag }));
@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: `${decoded}相关症状｜挂什么科`,
     description: `按“${decoded}”专题聚合常见症状入口页：挂什么科、何时急诊、就诊准备（仅导诊分流）。`,
-    alternates: { canonical: `/topic/${encodeURIComponent(decoded)}` },
+    alternates: { canonical: `/topics/${encodeURIComponent(decoded)}` },
   };
 }
 
@@ -33,8 +33,7 @@ export default async function TopicTagPage({
   const { tag } = await params;
   const decoded = decodeURIComponent(tag);
 
-  const all = uniqueSymptoms();
-  const list = all
+  const list = symptoms
     .filter((s) => (s.tags ?? []).includes(decoded))
     .slice(0, 200);
 
@@ -48,7 +47,7 @@ export default async function TopicTagPage({
       "@type": "ListItem",
       position: idx + 1,
       name: s.title,
-      url: `/symptom/${s.slug}`,
+      url: `https://triage-seo-site.vercel.app/symptom/${s.slug}`,
     })),
   };
 
@@ -62,9 +61,7 @@ export default async function TopicTagPage({
       <main className="mx-auto max-w-5xl p-6 space-y-6">
         <header className="space-y-2">
           <h1 className="text-3xl font-semibold">专题：{decoded}</h1>
-          <p className="text-slate-600">
-            按标签聚合症状入口（仅导诊分流）。
-          </p>
+          <p className="text-slate-600">按标签聚合症状入口（仅导诊分流）。</p>
 
           <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-4 space-y-2">
             <div className="text-sm font-semibold text-cyan-900">
