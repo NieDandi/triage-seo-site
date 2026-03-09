@@ -1371,6 +1371,246 @@ export const symptoms: SymptomItem[] = [
         tags: ["眼科"]
     },
 
+    {
+        slug: "night-cough",
+        title: "晚上咳嗽挂什么科",
+        summary: "夜间咳嗽可能与哮喘、过敏或呼吸道感染有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["耳鼻喉科"],
+        redFlags: ["持续呼吸困难", "胸痛"],
+        prep: ["记录咳嗽持续时间"],
+        faqs: [{ q: "夜间咳嗽需要检查吗？", a: "若持续超过一周建议就医检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "phlegm-cough",
+        title: "咳痰挂什么科",
+        summary: "咳痰常见于支气管炎或肺部感染。",
+        recommended: ["呼吸内科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["咳血", "高烧"],
+        prep: ["记录痰的颜色"],
+        faqs: [{ q: "咳痰需要检查吗？", a: "医生可能建议胸片或血常规检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "yellow-phlegm",
+        title: "咳黄痰挂什么科",
+        summary: "咳黄痰可能提示呼吸道感染。",
+        recommended: ["呼吸内科"],
+        alternatives: ["感染科"],
+        redFlags: ["高烧不退"],
+        prep: ["记录症状持续时间"],
+        faqs: [{ q: "咳黄痰需要治疗吗？", a: "若伴随发烧建议就医。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "voice-hoarseness",
+        title: "声音嘶哑挂什么科",
+        summary: "声音嘶哑可能与声带炎症或过度用嗓有关。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["持续两周以上"],
+        prep: ["避免过度说话"],
+        faqs: [{ q: "声音嘶哑需要检查吗？", a: "持续时间较长建议耳鼻喉科检查。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "throat-foreign-body",
+        title: "喉咙异物感挂什么科",
+        summary: "喉咙异物感可能与咽炎或胃食管反流有关。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["消化内科"],
+        redFlags: ["吞咽困难"],
+        prep: ["记录症状持续时间"],
+        faqs: [{ q: "喉咙异物感需要检查吗？", a: "医生可能建议喉镜检查。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "difficulty-swallowing",
+        title: "吞咽困难挂什么科",
+        summary: "吞咽困难可能与食管或咽喉问题有关。",
+        recommended: ["消化内科"],
+        alternatives: ["耳鼻喉科"],
+        redFlags: ["体重下降"],
+        prep: ["记录症状出现时间"],
+        faqs: [{ q: "吞咽困难需要检查吗？", a: "医生可能建议胃镜检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "acid-reflux",
+        title: "反酸挂什么科",
+        summary: "反酸常见于胃食管反流病。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续胸痛"],
+        prep: ["记录饮食情况"],
+        faqs: [{ q: "反酸需要治疗吗？", a: "持续症状建议就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "heartburn",
+        title: "烧心挂什么科",
+        summary: "烧心常见于胃食管反流或胃炎。",
+        recommended: ["消化内科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["剧烈胸痛"],
+        prep: ["避免刺激食物"],
+        faqs: [{ q: "烧心需要检查吗？", a: "医生可能建议胃镜检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "loss-of-appetite",
+        title: "食欲不振挂什么科",
+        summary: "食欲不振可能与胃肠疾病或情绪压力有关。",
+        recommended: ["消化内科"],
+        alternatives: ["心理科"],
+        redFlags: ["体重快速下降"],
+        prep: ["记录饮食情况"],
+        faqs: [{ q: "食欲不振需要检查吗？", a: "持续症状建议就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "black-stool",
+        title: "黑便挂什么科",
+        summary: "黑便可能提示消化道出血。",
+        recommended: ["消化内科"],
+        alternatives: ["急诊科"],
+        redFlags: ["头晕", "乏力"],
+        prep: ["记录排便情况"],
+        faqs: [{ q: "黑便需要立即就医吗？", a: "可能提示出血建议尽快就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "blood-in-stool",
+        title: "便血挂什么科",
+        summary: "便血可能与痔疮或肠道疾病有关。",
+        recommended: ["肛肠科"],
+        alternatives: ["消化内科"],
+        redFlags: ["持续出血"],
+        prep: ["记录出血量"],
+        faqs: [{ q: "便血需要检查吗？", a: "医生可能建议肠镜检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "hand-tremor",
+        title: "手抖挂什么科",
+        summary: "手抖可能与神经系统或情绪因素有关。",
+        recommended: ["神经内科"],
+        alternatives: ["精神科"],
+        redFlags: ["持续加重"],
+        prep: ["记录症状出现时间"],
+        faqs: [{ q: "手抖需要检查吗？", a: "医生可能建议神经系统检查。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "hand-numbness",
+        title: "手麻挂什么科",
+        summary: "手麻可能与神经压迫或颈椎问题有关。",
+        recommended: ["神经内科"],
+        alternatives: ["骨科"],
+        redFlags: ["肢体无力"],
+        prep: ["记录持续时间"],
+        faqs: [{ q: "手麻需要检查吗？", a: "医生可能建议神经检查。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "leg-numbness",
+        title: "腿麻挂什么科",
+        summary: "腿麻可能与神经压迫或腰椎问题有关。",
+        recommended: ["神经内科"],
+        alternatives: ["骨科"],
+        redFlags: ["行走困难"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "腿麻需要检查吗？", a: "医生可能建议影像检查。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "eye-dryness",
+        title: "眼睛干涩挂什么科",
+        summary: "眼睛干涩常见于干眼症。",
+        recommended: ["眼科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["视力下降"],
+        prep: ["减少用眼时间"],
+        faqs: [{ q: "眼睛干涩需要检查吗？", a: "医生可能建议眼科检查。" }],
+        tags: ["眼科"]
+    },
+
+    {
+        slug: "eye-fatigue",
+        title: "眼疲劳挂什么科",
+        summary: "眼疲劳常见于长时间用眼。",
+        recommended: ["眼科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["视力模糊"],
+        prep: ["注意休息"],
+        faqs: [{ q: "眼疲劳需要检查吗？", a: "持续不缓解建议就医。" }],
+        tags: ["眼科"]
+    },
+
+    {
+        slug: "rapid-heartbeat",
+        title: "心跳快挂什么科",
+        summary: "心跳加快可能与心律失常或焦虑有关。",
+        recommended: ["心内科"],
+        alternatives: ["精神科"],
+        redFlags: ["胸痛", "头晕"],
+        prep: ["记录发作时间"],
+        faqs: [{ q: "心跳快需要检查吗？", a: "医生可能建议心电图检查。" }],
+        tags: ["心脏"]
+    },
+
+    {
+        slug: "chest-stabbing-pain",
+        title: "胸口刺痛挂什么科",
+        summary: "胸口刺痛可能与心脏或肌肉问题有关。",
+        recommended: ["心内科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["持续胸痛"],
+        prep: ["记录疼痛时间"],
+        faqs: [{ q: "胸口刺痛需要检查吗？", a: "医生可能建议心电图检查。" }],
+        tags: ["心脏"]
+    },
+
+    {
+        slug: "heel-pain",
+        title: "脚跟痛挂什么科",
+        summary: "脚跟痛常见于足底筋膜炎。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["严重肿胀"],
+        prep: ["减少剧烈运动"],
+        faqs: [{ q: "脚跟痛需要检查吗？", a: "医生可能建议影像检查。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "wrist-pain",
+        title: "手腕痛挂什么科",
+        summary: "手腕痛可能与劳损或关节问题有关。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["剧烈疼痛"],
+        prep: ["记录疼痛时间"],
+        faqs: [{ q: "手腕痛需要检查吗？", a: "医生可能建议X光检查。" }],
+        tags: ["骨科"]
+    },
+
 ];
 
 export function uniqueSymptoms() {
