@@ -1611,6 +1611,486 @@ export const symptoms: SymptomItem[] = [
         tags: ["骨科"]
     },
 
+    {
+        slug: "chronic-cough",
+        title: "久咳不愈挂什么科",
+        summary: "长期咳嗽可能与慢性支气管炎、哮喘或过敏有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["耳鼻喉科"],
+        redFlags: ["咳血", "持续高烧"],
+        prep: ["记录咳嗽持续时间"],
+        faqs: [{ q: "久咳不愈需要检查吗？", a: "医生可能建议胸片或肺功能检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "white-phlegm",
+        title: "咳白痰挂什么科",
+        summary: "咳白痰常见于慢性支气管炎或感冒。",
+        recommended: ["呼吸内科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["呼吸困难"],
+        prep: ["记录痰的颜色和量"],
+        faqs: [{ q: "咳白痰需要检查吗？", a: "持续时间较长建议就医。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "green-phlegm",
+        title: "咳绿痰挂什么科",
+        summary: "咳绿痰可能提示呼吸道感染。",
+        recommended: ["呼吸内科"],
+        alternatives: ["感染科"],
+        redFlags: ["高烧", "呼吸困难"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "咳绿痰需要治疗吗？", a: "可能提示感染建议就医。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "itchy-throat",
+        title: "喉咙痒挂什么科",
+        summary: "喉咙痒常见于过敏或咽炎。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["吞咽困难"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "喉咙痒需要检查吗？", a: "持续不缓解建议就医。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "itchy-nose",
+        title: "鼻子痒挂什么科",
+        summary: "鼻子痒常见于过敏性鼻炎。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["持续鼻出血"],
+        prep: ["记录过敏史"],
+        faqs: [{ q: "鼻子痒需要检查吗？", a: "医生可能建议过敏检查。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "post-nasal-drip",
+        title: "鼻涕倒流挂什么科",
+        summary: "鼻涕倒流可能与鼻炎或鼻窦炎有关。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["持续头痛"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "鼻涕倒流需要治疗吗？", a: "持续症状建议就医。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "chest-tight",
+        title: "胸口发紧挂什么科",
+        summary: "胸口发紧可能与心脏或呼吸系统问题有关。",
+        recommended: ["心内科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["胸痛", "呼吸困难"],
+        prep: ["记录发作时间"],
+        faqs: [{ q: "胸口发紧需要检查吗？", a: "医生可能建议心电图检查。" }],
+        tags: ["心脏"]
+    },
+
+    {
+        slug: "short-breath",
+        title: "喘不过气挂什么科",
+        summary: "喘不过气可能与肺部或心脏疾病有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["心内科"],
+        redFlags: ["严重呼吸困难"],
+        prep: ["记录症状出现时间"],
+        faqs: [{ q: "喘不过气需要检查吗？", a: "医生可能建议肺功能检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "rapid-breath",
+        title: "呼吸急促挂什么科",
+        summary: "呼吸急促可能与肺部或心脏疾病有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["心内科"],
+        redFlags: ["呼吸困难"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "呼吸急促需要检查吗？", a: "医生可能建议胸部检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "deep-breath-pain",
+        title: "深呼吸胸痛挂什么科",
+        summary: "深呼吸胸痛可能与胸膜或肌肉问题有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["骨科"],
+        redFlags: ["持续胸痛"],
+        prep: ["记录疼痛时间"],
+        faqs: [{ q: "深呼吸胸痛需要检查吗？", a: "医生可能建议影像检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "bloating",
+        title: "胃胀挂什么科",
+        summary: "胃胀常见于消化不良或胃炎。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续腹痛"],
+        prep: ["记录饮食情况"],
+        faqs: [{ q: "胃胀需要检查吗？", a: "医生可能建议胃镜检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "post-meal-stomach-pain",
+        title: "饭后胃痛挂什么科",
+        summary: "饭后胃痛可能与胃炎或胃溃疡有关。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续疼痛"],
+        prep: ["记录疼痛时间"],
+        faqs: [{ q: "饭后胃痛需要检查吗？", a: "医生可能建议胃镜检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "empty-stomach-pain",
+        title: "空腹胃痛挂什么科",
+        summary: "空腹胃痛可能与胃溃疡或胃炎有关。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["剧烈疼痛"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "空腹胃痛需要检查吗？", a: "医生可能建议胃镜检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "lower-abdominal-pain",
+        title: "小腹痛挂什么科",
+        summary: "小腹痛可能与肠道或泌尿系统问题有关。",
+        recommended: ["消化内科"],
+        alternatives: ["泌尿外科"],
+        redFlags: ["剧烈腹痛"],
+        prep: ["记录疼痛位置"],
+        faqs: [{ q: "小腹痛需要检查吗？", a: "医生可能建议腹部检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "right-lower-abdomen",
+        title: "右下腹痛挂什么科",
+        summary: "右下腹痛可能与阑尾炎有关。",
+        recommended: ["普通外科"],
+        alternatives: ["消化内科"],
+        redFlags: ["持续剧痛"],
+        prep: ["记录疼痛时间"],
+        faqs: [{ q: "右下腹痛需要急诊吗？", a: "若疼痛剧烈建议尽快就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "left-lower-abdomen",
+        title: "左下腹痛挂什么科",
+        summary: "左下腹痛可能与肠道疾病有关。",
+        recommended: ["消化内科"],
+        alternatives: ["普通外科"],
+        redFlags: ["持续腹痛"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "左下腹痛需要检查吗？", a: "医生可能建议影像检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "bowel-sound",
+        title: "肚子咕噜响挂什么科",
+        summary: "肚子咕噜响常见于肠胃蠕动增强。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["严重腹痛"],
+        prep: ["记录饮食情况"],
+        faqs: [{ q: "肚子咕噜响需要检查吗？", a: "持续症状建议就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "loose-stool",
+        title: "大便不成形挂什么科",
+        summary: "大便不成形可能与肠道功能紊乱有关。",
+        recommended: ["消化内科"],
+        alternatives: ["肛肠科"],
+        redFlags: ["持续腹泻"],
+        prep: ["记录排便情况"],
+        faqs: [{ q: "大便不成形需要检查吗？", a: "医生可能建议肠道检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "black-poop",
+        title: "拉黑便挂什么科",
+        summary: "黑便可能提示消化道出血。",
+        recommended: ["消化内科"],
+        alternatives: ["急诊科"],
+        redFlags: ["头晕", "乏力"],
+        prep: ["记录排便情况"],
+        faqs: [{ q: "黑便需要急诊吗？", a: "可能提示出血建议尽快就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "gas",
+        title: "放屁多挂什么科",
+        summary: "放屁多常见于肠胃消化问题。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续腹痛"],
+        prep: ["记录饮食情况"],
+        faqs: [{ q: "放屁多需要检查吗？", a: "持续症状建议就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "dry-cough",
+        title: "干咳挂什么科",
+        summary: "干咳可能与感冒、过敏或呼吸道感染有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["耳鼻喉科"],
+        redFlags: ["持续高烧", "咳血"],
+        prep: ["记录咳嗽持续时间"],
+        faqs: [{ q: "干咳需要检查吗？", a: "持续不缓解建议就医。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "cough-with-phlegm",
+        title: "咳嗽有痰挂什么科",
+        summary: "咳嗽有痰可能与呼吸道感染或支气管炎有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["呼吸困难"],
+        prep: ["记录痰的颜色"],
+        faqs: [{ q: "咳嗽有痰需要检查吗？", a: "持续症状建议就医。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "throat-foreign-body",
+        title: "喉咙有异物感挂什么科",
+        summary: "喉咙异物感常见于咽炎或胃食管反流。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["消化内科"],
+        redFlags: ["吞咽困难"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "喉咙异物感需要检查吗？", a: "医生可能建议喉镜检查。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "breathing-difficulty",
+        title: "呼吸不畅挂什么科",
+        summary: "呼吸不畅可能与肺部或心脏问题有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["心内科"],
+        redFlags: ["严重呼吸困难"],
+        prep: ["记录发作时间"],
+        faqs: [{ q: "呼吸不畅需要检查吗？", a: "医生可能建议肺功能检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "short-breath-walking",
+        title: "走路气短挂什么科",
+        summary: "走路气短可能与心肺功能问题有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["心内科"],
+        redFlags: ["胸痛", "呼吸困难"],
+        prep: ["记录发作时间"],
+        faqs: [{ q: "走路气短需要检查吗？", a: "医生可能建议心肺检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "chest-tightness",
+        title: "胸口闷挂什么科",
+        summary: "胸口闷可能与心脏或呼吸系统疾病有关。",
+        recommended: ["心内科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["胸痛", "呼吸困难"],
+        prep: ["记录发作时间"],
+        faqs: [{ q: "胸口闷需要检查吗？", a: "医生可能建议心电图。" }],
+        tags: ["心脏"]
+    },
+
+    {
+        slug: "deep-breath-hard",
+        title: "深呼吸困难挂什么科",
+        summary: "深呼吸困难可能与肺部或胸膜问题有关。",
+        recommended: ["呼吸内科"],
+        alternatives: ["心内科"],
+        redFlags: ["严重胸痛"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "深呼吸困难需要检查吗？", a: "医生可能建议影像检查。" }],
+        tags: ["呼吸"]
+    },
+
+    {
+        slug: "gastric-acid",
+        title: "胃酸过多挂什么科",
+        summary: "胃酸过多常见于胃炎或胃食管反流。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续胃痛"],
+        prep: ["记录饮食情况"],
+        faqs: [{ q: "胃酸过多需要检查吗？", a: "医生可能建议胃镜检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "acid-reflux",
+        title: "胃反酸挂什么科",
+        summary: "胃反酸常见于胃食管反流。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续胸痛"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "胃反酸需要检查吗？", a: "医生可能建议胃镜。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "heartburn",
+        title: "胃烧心挂什么科",
+        summary: "胃烧心可能与胃酸反流有关。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续胃痛"],
+        prep: ["记录饮食情况"],
+        faqs: [{ q: "胃烧心需要检查吗？", a: "持续症状建议就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "stomach-discomfort",
+        title: "胃不舒服挂什么科",
+        summary: "胃部不适可能与胃炎或消化不良有关。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续腹痛"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "胃不舒服需要检查吗？", a: "医生可能建议胃镜。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "abdominal-cramp",
+        title: "肚子绞痛挂什么科",
+        summary: "腹部绞痛可能与肠道痉挛或炎症有关。",
+        recommended: ["消化内科"],
+        alternatives: ["普通外科"],
+        redFlags: ["剧烈腹痛"],
+        prep: ["记录疼痛位置"],
+        faqs: [{ q: "肚子绞痛需要检查吗？", a: "医生可能建议腹部检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "post-meal-bloating",
+        title: "饭后腹胀挂什么科",
+        summary: "饭后腹胀常见于消化不良。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续腹痛"],
+        prep: ["记录饮食情况"],
+        faqs: [{ q: "饭后腹胀需要检查吗？", a: "持续症状建议就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "indigestion",
+        title: "消化不良挂什么科",
+        summary: "消化不良常见于胃肠功能紊乱。",
+        recommended: ["消化内科"],
+        alternatives: ["普通内科"],
+        redFlags: ["持续腹痛"],
+        prep: ["记录饮食情况"],
+        faqs: [{ q: "消化不良需要检查吗？", a: "医生可能建议胃镜检查。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "loss-appetite",
+        title: "食欲不振挂什么科",
+        summary: "食欲不振可能与胃肠疾病或情绪问题有关。",
+        recommended: ["消化内科"],
+        alternatives: ["心理科"],
+        redFlags: ["体重明显下降"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "食欲不振需要检查吗？", a: "持续症状建议就医。" }],
+        tags: ["消化"]
+    },
+
+    {
+        slug: "sudden-dizziness",
+        title: "突然头晕挂什么科",
+        summary: "突然头晕可能与血压或神经系统疾病有关。",
+        recommended: ["神经内科"],
+        alternatives: ["心内科"],
+        redFlags: ["意识丧失"],
+        prep: ["记录发作时间"],
+        faqs: [{ q: "突然头晕需要检查吗？", a: "医生可能建议血压或影像检查。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "heavy-head",
+        title: "头重脚轻挂什么科",
+        summary: "头重脚轻可能与血压或贫血有关。",
+        recommended: ["神经内科"],
+        alternatives: ["心内科"],
+        redFlags: ["意识模糊"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "头重脚轻需要检查吗？", a: "医生可能建议血压检查。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "scalp-numb",
+        title: "头皮发麻挂什么科",
+        summary: "头皮发麻可能与神经或颈椎问题有关。",
+        recommended: ["神经内科"],
+        alternatives: ["骨科"],
+        redFlags: ["肢体无力"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "头皮发麻需要检查吗？", a: "医生可能建议神经检查。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "hand-numb",
+        title: "手脚发麻挂什么科",
+        summary: "手脚发麻可能与神经或循环问题有关。",
+        recommended: ["神经内科"],
+        alternatives: ["骨科"],
+        redFlags: ["肢体无力"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "手脚发麻需要检查吗？", a: "医生可能建议神经检查。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "memory-loss",
+        title: "记忆力下降挂什么科",
+        summary: "记忆力下降可能与神经系统疾病或压力有关。",
+        recommended: ["神经内科"],
+        alternatives: ["心理科"],
+        redFlags: ["明显认知下降"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "记忆力下降需要检查吗？", a: "医生可能建议认知测试。" }],
+        tags: ["神经"]
+    },
+
 ];
 
 export function uniqueSymptoms() {
