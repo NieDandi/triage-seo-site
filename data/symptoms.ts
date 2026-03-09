@@ -2091,6 +2091,594 @@ export const symptoms: SymptomItem[] = [
         tags: ["神经"]
     },
 
+    {
+        slug: "sore-back",
+        title: "后背酸痛挂什么科",
+        summary: "后背酸痛常见于肌肉劳损、姿势不良或脊柱问题。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["剧烈疼痛", "肢体麻木"],
+        prep: ["记录疼痛部位与持续时间"],
+        faqs: [{ q: "后背酸痛需要检查吗？", a: "持续不缓解建议骨科或康复科就诊。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "neck-stiffness",
+        title: "脖子僵硬挂什么科",
+        summary: "脖子僵硬可能与落枕、颈椎劳损或炎症有关。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["发热", "肢体无力"],
+        prep: ["记录症状出现时间"],
+        faqs: [{ q: "脖子僵硬需要拍片吗？", a: "持续明显不缓解时医生可能建议影像检查。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "cervical-pain",
+        title: "颈椎痛挂什么科",
+        summary: "颈椎痛常见于颈椎病、劳损或长期低头。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["手臂麻木", "头晕加重"],
+        prep: ["记录是否长期低头"],
+        faqs: [{ q: "颈椎痛需要检查吗？", a: "反复发作建议就医评估。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "shoulder-soreness",
+        title: "肩膀酸痛挂什么科",
+        summary: "肩膀酸痛可能与肩周炎、肌肉劳损或姿势不良有关。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["无法抬手", "剧烈疼痛"],
+        prep: ["记录疼痛时间与诱因"],
+        faqs: [{ q: "肩膀酸痛需要检查吗？", a: "持续不缓解建议骨科就诊。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "lumbar-pain",
+        title: "腰椎痛挂什么科",
+        summary: "腰椎痛常见于腰肌劳损、椎间盘问题或久坐。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["腿麻", "大小便异常"],
+        prep: ["记录疼痛是否放射到腿"],
+        faqs: [{ q: "腰椎痛需要做检查吗？", a: "严重或持续疼痛建议骨科评估。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "leg-soreness",
+        title: "腿酸痛挂什么科",
+        summary: "腿酸痛可能与肌肉劳损、关节问题或循环障碍有关。",
+        recommended: ["骨科"],
+        alternatives: ["血管外科"],
+        redFlags: ["明显肿胀", "无法行走"],
+        prep: ["记录疼痛部位"],
+        faqs: [{ q: "腿酸痛需要检查吗？", a: "若持续不缓解建议就医。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "heel-sore",
+        title: "脚后跟痛挂什么科",
+        summary: "脚后跟痛常见于足底筋膜炎或运动损伤。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["无法负重", "明显肿胀"],
+        prep: ["记录走路时是否加重"],
+        faqs: [{ q: "脚后跟痛需要检查吗？", a: "持续疼痛建议骨科检查。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "sole-pain",
+        title: "脚底痛挂什么科",
+        summary: "脚底痛可能与足底筋膜炎、劳损或足部结构问题有关。",
+        recommended: ["骨科"],
+        alternatives: ["康复科"],
+        redFlags: ["剧烈疼痛", "无法站立"],
+        prep: ["记录疼痛部位"],
+        faqs: [{ q: "脚底痛需要检查吗？", a: "持续不缓解建议骨科就诊。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "joint-stiffness",
+        title: "关节僵硬挂什么科",
+        summary: "关节僵硬可能与关节炎或风湿免疫问题有关。",
+        recommended: ["骨科"],
+        alternatives: ["风湿免疫科"],
+        redFlags: ["关节肿胀", "晨僵明显"],
+        prep: ["记录僵硬持续时间"],
+        faqs: [{ q: "关节僵硬需要检查吗？", a: "反复发作建议就医评估。" }],
+        tags: ["骨科"]
+    },
+
+    {
+        slug: "eye-soreness",
+        title: "眼睛酸胀挂什么科",
+        summary: "眼睛酸胀常见于用眼过度、干眼或眼压异常。",
+        recommended: ["眼科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["视力下降", "剧烈眼痛"],
+        prep: ["记录用眼时间"],
+        faqs: [{ q: "眼睛酸胀需要检查吗？", a: "持续不缓解建议眼科检查。" }],
+        tags: ["眼科"]
+    },
+
+    {
+        slug: "light-sensitive",
+        title: "畏光挂什么科",
+        summary: "畏光可能与眼部炎症、角膜问题或偏头痛有关。",
+        recommended: ["眼科"],
+        alternatives: ["神经内科"],
+        redFlags: ["剧烈头痛", "视力下降"],
+        prep: ["记录是否伴眼痛"],
+        faqs: [{ q: "畏光需要检查吗？", a: "建议眼科就诊排查原因。" }],
+        tags: ["眼科"]
+    },
+
+    {
+        slug: "ear-blocked",
+        title: "耳朵堵住挂什么科",
+        summary: "耳朵堵塞感可能与耵聍、咽鼓管问题或中耳炎有关。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["听力下降", "剧烈耳痛"],
+        prep: ["记录持续时间"],
+        faqs: [{ q: "耳朵堵住需要检查吗？", a: "建议耳鼻喉科检查。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "hearing-unclear",
+        title: "耳朵听不清挂什么科",
+        summary: "听不清可能与听力下降、中耳炎或耳部损伤有关。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["神经内科"],
+        redFlags: ["突然听力下降", "眩晕"],
+        prep: ["记录症状出现时间"],
+        faqs: [{ q: "耳朵听不清需要检查吗？", a: "建议尽快耳鼻喉科就诊。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "stuffy-nose",
+        title: "鼻子不通气挂什么科",
+        summary: "鼻塞不通气常见于鼻炎、鼻窦炎或感冒。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["持续高烧", "剧烈头痛"],
+        prep: ["记录症状持续时间"],
+        faqs: [{ q: "鼻子不通气需要检查吗？", a: "持续症状建议耳鼻喉科就诊。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "skin-red-rash",
+        title: "皮肤红疹挂什么科",
+        summary: "皮肤红疹可能与过敏、皮炎或感染有关。",
+        recommended: ["皮肤科"],
+        alternatives: ["过敏科"],
+        redFlags: ["迅速扩散", "发热"],
+        prep: ["记录出现时间"],
+        faqs: [{ q: "皮肤红疹需要检查吗？", a: "持续或反复发作建议皮肤科就诊。" }],
+        tags: ["皮肤"]
+    },
+
+    {
+        slug: "skin-allergy",
+        title: "皮肤过敏挂什么科",
+        summary: "皮肤过敏常见于接触刺激物或食物药物反应。",
+        recommended: ["皮肤科"],
+        alternatives: ["过敏科"],
+        redFlags: ["呼吸困难", "大面积红肿"],
+        prep: ["记录接触史"],
+        faqs: [{ q: "皮肤过敏需要检查吗？", a: "严重或反复发作建议就医。" }],
+        tags: ["皮肤"]
+    },
+
+    {
+        slug: "skin-bumps",
+        title: "皮肤起疙瘩挂什么科",
+        summary: "皮肤起疙瘩可能与荨麻疹、湿疹或感染有关。",
+        recommended: ["皮肤科"],
+        alternatives: ["过敏科"],
+        redFlags: ["迅速增多", "呼吸困难"],
+        prep: ["记录是否瘙痒"],
+        faqs: [{ q: "皮肤起疙瘩需要检查吗？", a: "建议皮肤科就诊。" }],
+        tags: ["皮肤"]
+    },
+
+    {
+        slug: "frequent-awakening",
+        title: "半夜总醒挂什么科",
+        summary: "夜间频繁醒来可能与压力、焦虑或睡眠障碍有关。",
+        recommended: ["精神科"],
+        alternatives: ["神经内科"],
+        redFlags: ["严重失眠", "情绪低落"],
+        prep: ["记录睡眠时间"],
+        faqs: [{ q: "半夜总醒需要检查吗？", a: "持续影响生活建议就医。" }],
+        tags: ["心理"]
+    },
+
+    {
+        slug: "early-waking",
+        title: "总是早醒挂什么科",
+        summary: "早醒可能与焦虑、抑郁或睡眠节律问题有关。",
+        recommended: ["精神科"],
+        alternatives: ["神经内科"],
+        redFlags: ["情绪低落", "严重失眠"],
+        prep: ["记录入睡和醒来时间"],
+        faqs: [{ q: "早醒需要治疗吗？", a: "长期早醒影响生活建议就医。" }],
+        tags: ["心理"]
+    },
+
+    {
+        slug: "difficulty-sleeping",
+        title: "入睡困难挂什么科",
+        summary: "入睡困难常见于压力、焦虑或作息紊乱。",
+        recommended: ["精神科"],
+        alternatives: ["神经内科"],
+        redFlags: ["连续多日失眠", "情绪异常"],
+        prep: ["记录睡前习惯"],
+        faqs: [{ q: "入睡困难需要检查吗？", a: "长期失眠建议就医评估。" }],
+        tags: ["心理"]
+    },
+
+    {
+        slug: "poor-focus",
+        title: "注意力不集中挂什么科",
+        summary: "注意力不集中可能与疲劳、焦虑或神经心理问题有关。",
+        recommended: ["精神科"],
+        alternatives: ["神经内科"],
+        redFlags: ["明显记忆下降", "反应迟钝"],
+        prep: ["记录症状持续时间"],
+        faqs: [{ q: "注意力不集中需要检查吗？", a: "持续影响学习工作建议就医。" }],
+        tags: ["心理"]
+    },
+
+    {
+        slug: "slow-response",
+        title: "反应迟钝挂什么科",
+        summary: "反应迟钝可能与疲劳、睡眠不足或神经系统问题有关。",
+        recommended: ["神经内科"],
+        alternatives: ["精神科"],
+        redFlags: ["意识模糊", "肢体无力"],
+        prep: ["记录出现时间"],
+        faqs: [{ q: "反应迟钝需要检查吗？", a: "若明显加重建议尽快就医。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "unstable-walking",
+        title: "走路不稳挂什么科",
+        summary: "走路不稳可能与神经系统、前庭功能或肌肉骨骼问题有关。",
+        recommended: ["神经内科"],
+        alternatives: ["骨科"],
+        redFlags: ["突然跌倒", "肢体无力"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "走路不稳需要检查吗？", a: "建议神经内科就诊。" }],
+        tags: ["神经"]
+    },
+
+    {
+        slug: "eye-red",
+        title: "眼睛红挂什么科",
+        summary: "眼睛发红可能与结膜炎、过敏或眼部刺激有关。",
+        recommended: ["眼科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["眼痛", "视力下降"],
+        prep: ["记录症状出现时间"],
+        faqs: [{ q: "眼睛红需要检查吗？", a: "持续不缓解建议眼科就诊。" }],
+        tags: ["眼科"]
+    },
+
+    {
+        slug: "itchy-eyes",
+        title: "眼睛痒挂什么科",
+        summary: "眼睛痒常见于过敏、结膜炎或干眼。",
+        recommended: ["眼科"],
+        alternatives: ["过敏科"],
+        redFlags: ["视力下降", "眼痛"],
+        prep: ["记录是否接触过敏原"],
+        faqs: [{ q: "眼睛痒需要检查吗？", a: "持续症状建议眼科检查。" }],
+        tags: ["眼科"]
+    },
+
+    {
+        slug: "watery-eyes",
+        title: "眼睛流泪挂什么科",
+        summary: "眼睛流泪可能与泪道问题、结膜炎或刺激有关。",
+        recommended: ["眼科"],
+        alternatives: ["耳鼻喉科"],
+        redFlags: ["眼痛", "视力模糊"],
+        prep: ["记录是否单眼发生"],
+        faqs: [{ q: "眼睛流泪需要检查吗？", a: "持续症状建议眼科就诊。" }],
+        tags: ["眼科"]
+    },
+
+    {
+        slug: "nasal-itching",
+        title: "鼻腔发痒挂什么科",
+        summary: "鼻腔发痒常见于过敏性鼻炎。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["过敏科"],
+        redFlags: ["持续鼻出血", "严重鼻塞"],
+        prep: ["记录过敏接触史"],
+        faqs: [{ q: "鼻腔发痒需要检查吗？", a: "反复发作建议耳鼻喉科就诊。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "runny-clear-nose",
+        title: "清水鼻涕挂什么科",
+        summary: "清水鼻涕常见于感冒初期或过敏性鼻炎。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["持续高烧", "剧烈头痛"],
+        prep: ["记录症状持续时间"],
+        faqs: [{ q: "清水鼻涕需要检查吗？", a: "长期反复发作建议就医。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "yellow-runny-nose",
+        title: "黄鼻涕挂什么科",
+        summary: "黄鼻涕可能与鼻窦炎或感染有关。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["感染科"],
+        redFlags: ["发热", "头面部疼痛"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "黄鼻涕需要治疗吗？", a: "持续症状建议耳鼻喉科就诊。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "facial-pain",
+        title: "面部疼痛挂什么科",
+        summary: "面部疼痛可能与鼻窦炎、牙齿问题或神经痛有关。",
+        recommended: ["耳鼻喉科"],
+        alternatives: ["口腔科"],
+        redFlags: ["高烧", "视力异常"],
+        prep: ["记录疼痛部位"],
+        faqs: [{ q: "面部疼痛需要检查吗？", a: "建议根据疼痛部位就诊。" }],
+        tags: ["耳鼻喉"]
+    },
+
+    {
+        slug: "tooth-sensitive",
+        title: "牙齿敏感挂什么科",
+        summary: "牙齿敏感常见于牙釉质损伤或牙龈退缩。",
+        recommended: ["口腔科"],
+        alternatives: ["牙体牙髓科"],
+        redFlags: ["剧烈疼痛", "牙龈肿胀"],
+        prep: ["记录冷热刺激反应"],
+        faqs: [{ q: "牙齿敏感需要检查吗？", a: "建议口腔科检查。" }],
+        tags: ["口腔"]
+    },
+
+    {
+        slug: "gum-swelling",
+        title: "牙龈肿痛挂什么科",
+        summary: "牙龈肿痛可能与牙龈炎或牙周感染有关。",
+        recommended: ["口腔科"],
+        alternatives: ["牙周科"],
+        redFlags: ["发热", "面部肿胀"],
+        prep: ["记录症状时间"],
+        faqs: [{ q: "牙龈肿痛需要检查吗？", a: "建议尽快口腔科就诊。" }],
+        tags: ["口腔"]
+    },
+
+    {
+        slug: "mouth-odor",
+        title: "口臭挂什么科",
+        summary: "口臭可能与口腔卫生、牙周问题或消化问题有关。",
+        recommended: ["口腔科"],
+        alternatives: ["消化内科"],
+        redFlags: ["牙龈出血", "长期不缓解"],
+        prep: ["记录持续时间"],
+        faqs: [{ q: "口臭需要检查吗？", a: "长期口臭建议口腔科检查。" }],
+        tags: ["口腔"]
+    },
+
+    {
+        slug: "frequent-thirst",
+        title: "总口渴挂什么科",
+        summary: "总是口渴可能与血糖异常、脱水或内分泌问题有关。",
+        recommended: ["内分泌科"],
+        alternatives: ["肾内科"],
+        redFlags: ["多饮多尿", "乏力明显"],
+        prep: ["记录饮水量"],
+        faqs: [{ q: "总口渴需要检查吗？", a: "建议检查血糖等指标。" }],
+        tags: ["内分泌"]
+    },
+
+    {
+        slug: "always-hungry",
+        title: "总是饿挂什么科",
+        summary: "总是饥饿可能与血糖波动、甲状腺或饮食习惯有关。",
+        recommended: ["内分泌科"],
+        alternatives: ["消化内科"],
+        redFlags: ["体重下降", "心慌"],
+        prep: ["记录饮食和体重变化"],
+        faqs: [{ q: "总是饿需要检查吗？", a: "建议内分泌科评估。" }],
+        tags: ["内分泌"]
+    },
+
+    {
+        slug: "heat-intolerance",
+        title: "怕热出汗多挂什么科",
+        summary: "怕热多汗可能与甲状腺功能异常或情绪因素有关。",
+        recommended: ["内分泌科"],
+        alternatives: ["精神科"],
+        redFlags: ["心慌", "体重下降"],
+        prep: ["记录出汗情况"],
+        faqs: [{ q: "怕热出汗多需要检查吗？", a: "建议内分泌科就诊。" }],
+        tags: ["内分泌"]
+    },
+
+    {
+        slug: "cold-intolerance",
+        title: "怕冷挂什么科",
+        summary: "怕冷可能与甲状腺功能低下、贫血或体质有关。",
+        recommended: ["内分泌科"],
+        alternatives: ["血液科"],
+        redFlags: ["乏力明显", "水肿"],
+        prep: ["记录是否伴体重增加"],
+        faqs: [{ q: "怕冷需要检查吗？", a: "建议内分泌或内科检查。" }],
+        tags: ["内分泌"]
+    },
+
+    {
+        slug: "weight-gain",
+        title: "体重增加挂什么科",
+        summary: "体重增加可能与内分泌、饮食或生活方式变化有关。",
+        recommended: ["内分泌科"],
+        alternatives: ["全科医学科"],
+        redFlags: ["浮肿", "月经异常"],
+        prep: ["记录体重变化"],
+        faqs: [{ q: "体重增加需要检查吗？", a: "建议内分泌科评估。" }],
+        tags: ["内分泌"]
+    },
+
+    {
+        slug: "foamy-urine",
+        title: "尿液有泡沫挂什么科",
+        summary: "尿液泡沫增多可能与蛋白尿或泌尿系统问题有关。",
+        recommended: ["肾内科"],
+        alternatives: ["泌尿外科"],
+        redFlags: ["水肿", "血尿"],
+        prep: ["记录持续时间"],
+        faqs: [{ q: "尿液有泡沫需要检查吗？", a: "建议做尿常规检查。" }],
+        tags: ["泌尿"]
+    },
+
+    {
+        slug: "low-urine-output",
+        title: "尿少挂什么科",
+        summary: "尿量减少可能与脱水、肾功能异常或循环问题有关。",
+        recommended: ["肾内科"],
+        alternatives: ["心内科"],
+        redFlags: ["水肿", "呼吸困难"],
+        prep: ["记录饮水量和尿量"],
+        faqs: [{ q: "尿少需要检查吗？", a: "建议尽快就医评估。" }],
+        tags: ["泌尿"]
+    },
+
+    {
+        slug: "night-urination",
+        title: "夜尿多挂什么科",
+        summary: "夜尿增多可能与前列腺、泌尿系统或血糖问题有关。",
+        recommended: ["泌尿外科"],
+        alternatives: ["内分泌科"],
+        redFlags: ["血尿", "排尿困难"],
+        prep: ["记录夜间起夜次数"],
+        faqs: [{ q: "夜尿多需要检查吗？", a: "建议泌尿外科或内分泌科就诊。" }],
+        tags: ["泌尿"]
+    },
+
+    {
+        slug: "urine-yellow-dark",
+        title: "尿黄挂什么科",
+        summary: "尿黄可能与饮水少、发热或肝胆问题有关。",
+        recommended: ["全科医学科"],
+        alternatives: ["肾内科"],
+        redFlags: ["黄疸", "尿痛"],
+        prep: ["记录饮水情况"],
+        faqs: [{ q: "尿黄需要检查吗？", a: "持续明显异常建议就医。" }],
+        tags: ["泌尿"]
+    },
+
+    {
+        slug: "itchy-skin-body",
+        title: "全身瘙痒挂什么科",
+        summary: "全身瘙痒可能与皮肤病、过敏或内科问题有关。",
+        recommended: ["皮肤科"],
+        alternatives: ["过敏科"],
+        redFlags: ["皮疹扩散", "呼吸困难"],
+        prep: ["记录瘙痒持续时间"],
+        faqs: [{ q: "全身瘙痒需要检查吗？", a: "持续不缓解建议皮肤科就诊。" }],
+        tags: ["皮肤"]
+    },
+
+    {
+        slug: "dry-skin",
+        title: "皮肤干燥挂什么科",
+        summary: "皮肤干燥可能与季节、护理不当或内分泌问题有关。",
+        recommended: ["皮肤科"],
+        alternatives: ["内分泌科"],
+        redFlags: ["明显脱屑", "裂口出血"],
+        prep: ["记录持续时间"],
+        faqs: [{ q: "皮肤干燥需要检查吗？", a: "严重或反复建议就医。" }],
+        tags: ["皮肤"]
+    },
+
+    {
+        slug: "skin-peeling",
+        title: "皮肤脱皮挂什么科",
+        summary: "皮肤脱皮可能与湿疹、真菌感染或刺激有关。",
+        recommended: ["皮肤科"],
+        alternatives: ["过敏科"],
+        redFlags: ["渗液", "疼痛明显"],
+        prep: ["记录部位和持续时间"],
+        faqs: [{ q: "皮肤脱皮需要检查吗？", a: "建议皮肤科就诊。" }],
+        tags: ["皮肤"]
+    },
+
+    {
+        slug: "red-spot-skin",
+        title: "身上起红点挂什么科",
+        summary: "身上起红点可能与过敏、感染或皮肤炎症有关。",
+        recommended: ["皮肤科"],
+        alternatives: ["感染科"],
+        redFlags: ["迅速增多", "伴发热"],
+        prep: ["记录出现时间"],
+        faqs: [{ q: "身上起红点需要检查吗？", a: "建议皮肤科就诊。" }],
+        tags: ["皮肤"]
+    },
+
+    {
+        slug: "chest-pressure",
+        title: "胸口压迫感挂什么科",
+        summary: "胸口压迫感可能与心脏、呼吸系统或焦虑有关。",
+        recommended: ["心内科"],
+        alternatives: ["呼吸内科"],
+        redFlags: ["胸痛持续", "出汗"],
+        prep: ["记录发作时间"],
+        faqs: [{ q: "胸口压迫感需要检查吗？", a: "建议尽快就医排查。" }],
+        tags: ["心脏"]
+    },
+
+    {
+        slug: "heart-skipping",
+        title: "心跳漏拍挂什么科",
+        summary: "心跳漏拍可能与心律失常或情绪因素有关。",
+        recommended: ["心内科"],
+        alternatives: ["精神科"],
+        redFlags: ["头晕", "胸痛"],
+        prep: ["记录发作频率"],
+        faqs: [{ q: "心跳漏拍需要检查吗？", a: "建议做心电图检查。" }],
+        tags: ["心脏"]
+    },
+
+    {
+        slug: "ankle-swelling",
+        title: "脚踝肿挂什么科",
+        summary: "脚踝肿胀可能与扭伤、静脉问题或心肾功能异常有关。",
+        recommended: ["骨科"],
+        alternatives: ["肾内科"],
+        redFlags: ["明显疼痛", "呼吸困难"],
+        prep: ["记录肿胀时间"],
+        faqs: [{ q: "脚踝肿需要检查吗？", a: "建议根据伴随症状选择就诊科室。" }],
+        tags: ["骨科"]
+    },
+
 ];
 
 export function uniqueSymptoms() {
