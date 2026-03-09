@@ -22,6 +22,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: `${baseUrl}/topics`,
+      lastModified: new Date(),
+    },
+    {
       url: `${baseUrl}/symptoms`,
       lastModified: new Date(),
     },
