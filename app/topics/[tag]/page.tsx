@@ -3,28 +3,22 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { symptoms } from "../../../data/symptoms";
 
-export const dynamicParams = true;
-
-function normalizeTag(tag: string) {
+function normalizeTag(value: string) {
   try {
-    return decodeURIComponent(tag).trim();
+    return decodeURIComponent(value).trim().toLowerCase();
   } catch {
-    return tag.trim();
+    return value.trim().toLowerCase();
   }
 }
 
-function getAllTags() {
+export function generateStaticParams() {
   const set = new Set<string>();
   for (const s of symptoms) {
     for (const t of s.tags ?? []) {
       set.add(String(t).trim());
     }
   }
-  return Array.from(set);
-}
-
-export function generateStaticParams() {
-  return getAllTags().map((tag) => ({ tag }));
+  return Array.from(set).map((tag) => ({ tag }));
 }
 
 export async function generateMetadata({
@@ -33,7 +27,7 @@ export async function generateMetadata({
   params: Promise<{ tag: string }>;
 }): Promise<Metadata> {
   const { tag } = await params;
-  const decoded = normalizeTag(tag);
+  const decoded = decodeURIComponent(tag).trim();
 
   return {
     title: `${decoded}相关症状｜挂什么科`,
@@ -48,11 +42,14 @@ export default async function TopicTagPage({
   params: Promise<{ tag: string }>;
 }) {
   const { tag } = await params;
-  const decoded = normalizeTag(tag);
+  const decoded = decodeURIComponent(tag).trim();
+  const normalizedDecoded = normalizeTag(tag);
 
   const list = symptoms
     .filter((s) =>
-      (s.tags ?? []).some((t: string) => String(t).trim() === decoded)
+      (s.tags ?? []).some(
+        (t: string) => normalizeTag(String(t)) === normalizedDecoded
+      )
     )
     .slice(0, 200);
 
