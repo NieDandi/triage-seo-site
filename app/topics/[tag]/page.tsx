@@ -1,13 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { uniqueSymptoms } from "../../../data/symptoms";
+import { notFound } from "next/navigation";
+import { symptoms } from "../../../data/symptoms";
+
+export const dynamicParams = true;
+
+function normalizeTag(tag: string) {
+  try {
+    return decodeURIComponent(tag).trim();
+  } catch {
+    return tag.trim();
+  }
+}
+
+function getAllTags() {
+  const set = new Set<string>();
+  for (const s of symptoms) {
+    for (const t of s.tags ?? []) {
+      set.add(String(t).trim());
+    }
+  }
+  return Array.from(set);
+}
 
 export function generateStaticParams() {
-  const set = new Set<string>();
-  for (const s of uniqueSymptoms()) {
-    for (const t of s.tags ?? []) set.add(t);
-  }
-  return Array.from(set).map((tag) => ({ tag }));
+  return getAllTags().map((tag) => ({ tag }));
 }
 
 export async function generateMetadata({
@@ -16,12 +33,12 @@ export async function generateMetadata({
   params: Promise<{ tag: string }>;
 }): Promise<Metadata> {
   const { tag } = await params;
-  const decoded = decodeURIComponent(tag);
+  const decoded = normalizeTag(tag);
 
   return {
     title: `${decoded}相关症状｜挂什么科`,
     description: `按“${decoded}”专题聚合常见症状入口页：挂什么科、何时急诊、就诊准备（仅导诊分流）。`,
-    alternates: { canonical: `/topic/${encodeURIComponent(decoded)}` },
+    alternates: { canonical: `/topics/${encodeURIComponent(decoded)}` },
   };
 }
 
@@ -31,12 +48,17 @@ export default async function TopicTagPage({
   params: Promise<{ tag: string }>;
 }) {
   const { tag } = await params;
-  const decoded = decodeURIComponent(tag);
+  const decoded = normalizeTag(tag);
 
-  const all = uniqueSymptoms();
-  const list = all
-    .filter((s) => (s.tags ?? []).includes(decoded))
+  const list = symptoms
+    .filter((s) =>
+      (s.tags ?? []).some((t: string) => String(t).trim() === decoded)
+    )
     .slice(0, 200);
+
+  if (list.length === 0) {
+    return notFound();
+  }
 
   const aiSummary = `专题：${decoded}。本页聚合与“${decoded}”相关的常见症状入口，帮助快速确定推荐挂号科室，并提示危险信号与就诊准备（不提供诊断与治疗）。当前条目数：${list.length}。`;
 
@@ -48,7 +70,7 @@ export default async function TopicTagPage({
       "@type": "ListItem",
       position: idx + 1,
       name: s.title,
-      url: `/symptom/${s.slug}`,
+      url: `https://triage-seo-site.vercel.app/symptom/${s.slug}`,
     })),
   };
 
@@ -62,9 +84,7 @@ export default async function TopicTagPage({
       <main className="mx-auto max-w-5xl p-6 space-y-6">
         <header className="space-y-2">
           <h1 className="text-3xl font-semibold">专题：{decoded}</h1>
-          <p className="text-slate-600">
-            按标签聚合症状入口（仅导诊分流）。
-          </p>
+          <p className="text-slate-600">按标签聚合症状入口（仅导诊分流）。</p>
 
           <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-4 space-y-2">
             <div className="text-sm font-semibold text-cyan-900">
