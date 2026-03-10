@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  const guidePages = [
+  const guideSlugs = [
     "ganmao-gua-shenme-ke",
     "fashao-gua-shenme-ke",
     "kesou-gua-shenme-ke",
@@ -24,7 +24,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "xiongmen-gua-shenme-ke",
     "touyun-gua-shenme-ke",
     "shimian-gua-shenme-ke",
-  ].map((slug) => ({
+  ];
+
+  const guidePages = guideSlugs.map((slug) => ({
     url: `${baseUrl}/guides/${slug}`,
     lastModified: new Date(),
   }));
