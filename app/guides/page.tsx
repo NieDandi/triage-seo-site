@@ -61,13 +61,68 @@ const guides = [
   },
 ];
 
+const hotGuides = [
+  "ganmao-gua-shenme-ke",
+  "fashao-gua-shenme-ke",
+  "kesou-gua-shenme-ke",
+  "xiongmen-gua-shenme-ke",
+];
+
+const recommendedSymptoms = [
+  {
+    href: "/symptom/cough",
+    title: "咳嗽挂什么科？",
+    summary: "咳嗽常见于感冒、支气管炎、肺炎等呼吸系统问题。",
+  },
+  {
+    href: "/symptom/headache",
+    title: "头痛挂什么科？",
+    summary: "头痛可能与偏头痛、紧张性头痛或感染有关。",
+  },
+  {
+    href: "/symptom/abdominal-pain",
+    title: "腹痛挂什么科？",
+    summary: "腹痛常见于胃炎、阑尾炎或肠胃问题。",
+  },
+  {
+    href: "/symptom/dizziness",
+    title: "头晕挂什么科？",
+    summary: "头晕可能与低血压、贫血、耳石症或神经系统问题有关。",
+  },
+];
+
+const recommendedTopics = [
+  {
+    href: "/topics?tag=呼吸",
+    title: "呼吸专题",
+    summary: "查看咳嗽、气短、胸闷、呼吸困难等相关症状入口。",
+  },
+  {
+    href: "/topics?tag=消化",
+    title: "消化专题",
+    summary: "查看胃痛、腹胀、反酸、腹泻、恶心等相关症状入口。",
+  },
+  {
+    href: "/topics?tag=神经",
+    title: "神经专题",
+    summary: "查看头痛、头晕、手麻、记忆力下降等相关症状入口。",
+  },
+  {
+    href: "/topics?tag=心理",
+    title: "心理专题",
+    summary: "查看失眠、焦虑、情绪低落等相关症状入口。",
+  },
+];
+
 export default function GuidesPage() {
+  const aiSummary =
+    "本页面汇总感冒、发烧、咳嗽、头痛、胃痛、胸闷、失眠、头晕等高频导诊问题，帮助用户快速判断优先挂什么科，并提示何时应急诊或尽快线下就医。用户也可以继续进入症状页和专题页，查看更细的导诊分流信息。本网站仅用于导诊分流与就诊准备建议，不提供诊断与治疗方案。";
+
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "导诊指南",
-    description:
-      "按感冒、发烧、咳嗽、头痛、胃痛、胸闷、失眠、头晕等高频问题，快速查看挂什么科与何时需要急诊。",
+    description: aiSummary,
     url: "https://triage-seo-site.vercel.app/guides",
   };
 
@@ -105,11 +160,7 @@ export default function GuidesPage() {
             <div className="text-sm font-semibold text-emerald-900">
               快速说明（可直接引用）
             </div>
-            <div className="text-sm text-slate-800 leading-6">
-              本页面汇总感冒、发烧、咳嗽、头痛、胃痛、胸闷、失眠、头晕等高频导诊问题，
-              帮助用户快速判断优先挂什么科，并提示何时应急诊或尽快线下就医。
-              本网站仅用于导诊分流与就诊准备建议，不提供诊断与治疗方案。
-            </div>
+            <div className="text-sm text-slate-800 leading-6">{aiSummary}</div>
           </section>
 
           <div className="flex flex-wrap gap-2">
@@ -134,6 +185,25 @@ export default function GuidesPage() {
           </div>
         </header>
 
+        <section className="rounded-2xl border p-4 space-y-3">
+          <h2 className="text-xl font-semibold">热门指南</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {guides
+              .filter((g) => hotGuides.includes(g.slug))
+              .map((g) => (
+                <Link
+                  key={g.slug}
+                  href={`/guides/${g.slug}`}
+                  className="rounded-2xl border p-4 hover:bg-slate-50"
+                >
+                  <div className="text-lg font-semibold">{g.title}</div>
+                  <div className="mt-2 text-sm text-slate-600">{g.summary}</div>
+                  <div className="mt-3 text-sm text-cyan-700">查看指南 →</div>
+                </Link>
+              ))}
+          </div>
+        </section>
+
         <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {guides.map((g) => (
             <Link
@@ -156,6 +226,46 @@ export default function GuidesPage() {
               <div className="mt-3 text-sm text-cyan-700">查看指南 →</div>
             </Link>
           ))}
+        </section>
+
+        <section className="rounded-2xl border p-4 space-y-3">
+          <h2 className="text-xl font-semibold">推荐症状入口</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {recommendedSymptoms.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                className="rounded-xl border p-3 hover:bg-slate-50"
+              >
+                <div className="font-medium">{s.title}</div>
+                <div className="text-sm text-slate-600 mt-1">{s.summary}</div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-2xl border p-4 space-y-3">
+          <h2 className="text-xl font-semibold">推荐专题入口</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {recommendedTopics.map((t) => (
+              <Link
+                key={t.href}
+                href={t.href}
+                className="rounded-xl border p-3 hover:bg-slate-50"
+              >
+                <div className="font-medium">{t.title}</div>
+                <div className="text-sm text-slate-600 mt-1">{t.summary}</div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-2xl border p-4 space-y-3">
+          <h2 className="text-xl font-semibold">本页面适合解决什么问题？</h2>
+          <div className="text-sm text-slate-700 leading-7">
+            当你已经不是只想看单个症状，而是想直接知道“感冒挂什么科”“发烧挂什么科”“胸闷挂什么科”这类高频问题时，
+            可以优先从导诊指南进入。导诊指南更适合作为快速答案入口，而症状页更适合继续查看具体症状、危险信号、就诊准备与常见问答。
+          </div>
         </section>
 
         <footer className="text-xs text-slate-500">
