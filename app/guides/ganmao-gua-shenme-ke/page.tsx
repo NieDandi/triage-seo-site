@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import GuideMoreLinks from "../GuideMoreLinks";
 
 export const metadata: Metadata = {
     title: "感冒挂什么科",
@@ -52,6 +53,42 @@ export default function GuideGanmaoPage() {
             },
         ],
     };
+
+    const recommendedSymptoms = [
+        {
+            href: "/symptom/cough",
+            title: "咳嗽挂什么科？",
+            summary: "咳嗽常见于感冒、支气管炎、肺炎等呼吸系统问题。",
+        },
+        {
+            href: "/symptom/sore-throat",
+            title: "喉咙痛挂什么科？",
+            summary: "喉咙痛常见于咽炎、扁桃体炎或上呼吸道感染。",
+        },
+        {
+            href: "/symptom/runny-nose",
+            title: "流鼻涕挂什么科？",
+            summary: "流鼻涕常见于感冒、鼻炎或过敏。",
+        },
+        {
+            href: "/symptom/nasal-congestion",
+            title: "鼻塞挂什么科？",
+            summary: "鼻塞常见于鼻炎、鼻窦炎或感冒。",
+        },
+    ];
+
+    const recommendedTopics = [
+        {
+            href: "/topics?tag=呼吸",
+            title: "呼吸专题",
+            summary: "查看咳嗽、气短、胸闷、呼吸困难等相关症状入口。",
+        },
+        {
+            href: "/topics?tag=耳鼻喉",
+            title: "耳鼻喉专题",
+            summary: "查看鼻塞、流鼻涕、喉咙痛、耳鸣等相关症状入口。",
+        },
+    ];
 
     return (
         <>
@@ -250,6 +287,11 @@ export default function GuideGanmaoPage() {
 
                     </div>
                 </section>
+
+                <GuideMoreLinks
+                    symptoms={recommendedSymptoms}
+                    topics={recommendedTopics}
+                />
 
                 <footer className="text-xs text-slate-500">
                     免责声明：本页面仅用于导诊分流与就医准备建议，不提供诊断与治疗方案。
