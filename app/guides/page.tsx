@@ -59,6 +59,78 @@ const guides = [
     summary: "头晕常看神经内科，也可能涉及耳鼻喉、心血管等方向。",
     tags: ["神经", "耳鼻喉"],
   },
+  {
+    slug: "bisai-gua-shenme-ke",
+    title: "鼻塞挂什么科",
+    summary: "鼻塞一般优先看耳鼻喉科，若伴高热、头痛需尽快就医。",
+    tags: ["耳鼻喉"],
+  },
+  {
+    slug: "houlongtong-gua-shenme-ke",
+    title: "喉咙痛挂什么科",
+    summary: "喉咙痛一般优先看耳鼻喉科，也可结合呼吸内科判断。",
+    tags: ["耳鼻喉", "呼吸"],
+  },
+  {
+    slug: "futong-gua-shenme-ke",
+    title: "腹痛挂什么科",
+    summary: "腹痛一般优先看消化内科，也可能涉及普通外科。",
+    tags: ["消化"],
+  },
+  {
+    slug: "xinhuang-gua-shenme-ke",
+    title: "心慌挂什么科",
+    summary: "心慌一般优先看心内科，也可能结合内分泌或心理方向判断。",
+    tags: ["心脏", "心理"],
+  },
+    {
+    slug: "liubiti-gua-shenme-ke",
+    title: "流鼻涕挂什么科",
+    summary: "流鼻涕一般优先看耳鼻喉科，也可结合呼吸内科判断。",
+    tags: ["耳鼻喉", "呼吸"],
+  },
+  {
+    slug: "huxikunnan-gua-shenme-ke",
+    title: "呼吸困难挂什么科",
+    summary: "呼吸困难一般优先看呼吸内科或心内科。",
+    tags: ["呼吸", "心脏"],
+  },
+  {
+    slug: "fansuan-gua-shenme-ke",
+    title: "反酸挂什么科",
+    summary: "反酸一般优先看消化内科。",
+    tags: ["消化"],
+  },
+  {
+    slug: "fuxie-gua-shenme-ke",
+    title: "腹泻挂什么科",
+    summary: "腹泻一般优先看消化内科或感染科。",
+    tags: ["消化", "感染"],
+  },
+  {
+    slug: "piantoutong-gua-shenme-ke",
+    title: "偏头痛挂什么科",
+    summary: "偏头痛一般优先看神经内科。",
+    tags: ["神经"],
+  },
+  {
+    slug: "jiaolv-gua-shenme-ke",
+    title: "焦虑挂什么科",
+    summary: "焦虑一般优先看精神科或心理科。",
+    tags: ["心理"],
+  },
+  {
+    slug: "yiyu-gua-shenme-ke",
+    title: "抑郁挂什么科",
+    summary: "抑郁一般优先看精神科或心理科。",
+    tags: ["心理"],
+  },
+  {
+    slug: "xiongtong-gua-shenme-ke",
+    title: "胸痛挂什么科",
+    summary: "胸痛一般优先看心内科，也可能涉及呼吸内科。",
+    tags: ["心脏", "呼吸"],
+  },
 ];
 
 const hotGuides = [

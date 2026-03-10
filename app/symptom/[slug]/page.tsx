@@ -6,7 +6,6 @@ import { symptoms } from "../../../data/symptoms";
 import { departments } from "../../../data/departments";
 
 export function generateStaticParams() {
-  // 让 Next 预生成所有症状页（本地 dev 也会更稳定）
   return symptoms.map((s) => ({ slug: s.slug }));
 }
 
@@ -26,6 +25,115 @@ export async function generateMetadata({
   };
 }
 
+type GuideItem = {
+  slug: string;
+  title: string;
+  summary: string;
+};
+
+const allGuides: GuideItem[] = [
+  {
+    slug: "ganmao-gua-shenme-ke",
+    title: "感冒挂什么科",
+    summary: "普通感冒一般可先看全科医学科、呼吸内科或耳鼻喉科。",
+  },
+  {
+    slug: "fashao-gua-shenme-ke",
+    title: "发烧挂什么科",
+    summary: "发热通常可先看感染科、全科医学科或综合内科。",
+  },
+  {
+    slug: "kesou-gua-shenme-ke",
+    title: "咳嗽挂什么科",
+    summary: "咳嗽一般优先看呼吸内科，也可结合耳鼻喉科方向判断。",
+  },
+  {
+    slug: "toutong-gua-shenme-ke",
+    title: "头痛挂什么科",
+    summary: "头痛通常优先考虑神经内科，危险信号明显时应尽快就医。",
+  },
+  {
+    slug: "weitong-gua-shenme-ke",
+    title: "胃痛挂什么科",
+    summary: "胃痛通常优先看消化内科，若持续剧烈腹痛应尽快就医。",
+  },
+  {
+    slug: "xiongmen-gua-shenme-ke",
+    title: "胸闷挂什么科",
+    summary: "胸闷通常优先考虑心内科或呼吸内科。",
+  },
+  {
+    slug: "touyun-gua-shenme-ke",
+    title: "头晕挂什么科",
+    summary: "头晕通常优先看神经内科，也可能涉及耳鼻喉科或心内科。",
+  },
+  {
+    slug: "shimian-gua-shenme-ke",
+    title: "失眠挂什么科",
+    summary: "失眠通常优先考虑精神科、心理科或神经内科。",
+  },
+];
+
+function getRelatedGuides(item: (typeof symptoms)[number]) {
+  const text = `${item.title} ${(item.tags ?? []).join(" ")} ${item.summary}`;
+
+  const hasAny = (keywords: string[]) => keywords.some((k) => text.includes(k));
+
+  const result: GuideItem[] = [];
+
+  if (hasAny(["感冒", "鼻塞", "流鼻涕", "咽痛", "喉咙痛"])) {
+    result.push(allGuides.find((g) => g.slug === "ganmao-gua-shenme-ke")!);
+  }
+
+  if (hasAny(["发烧", "发热", "高热"])) {
+    result.push(allGuides.find((g) => g.slug === "fashao-gua-shenme-ke")!);
+  }
+
+  if (hasAny(["咳嗽", "咳痰", "干咳", "久咳", "夜间咳嗽", "喘鸣"])) {
+    result.push(allGuides.find((g) => g.slug === "kesou-gua-shenme-ke")!);
+  }
+
+  if (hasAny(["头痛", "偏头痛"])) {
+    result.push(allGuides.find((g) => g.slug === "toutong-gua-shenme-ke")!);
+  }
+
+  if (hasAny(["胃痛", "胃胀", "反酸", "烧心", "腹痛", "腹胀", "恶心", "呕吐"])) {
+    result.push(allGuides.find((g) => g.slug === "weitong-gua-shenme-ke")!);
+  }
+
+  if (hasAny(["胸闷", "胸痛", "心慌", "呼吸困难", "胸口压迫感", "气短"])) {
+    result.push(allGuides.find((g) => g.slug === "xiongmen-gua-shenme-ke")!);
+  }
+
+  if (hasAny(["头晕", "眩晕", "耳鸣", "眼前发黑", "站不稳"])) {
+    result.push(allGuides.find((g) => g.slug === "touyun-gua-shenme-ke")!);
+  }
+
+  if (hasAny(["失眠", "睡不着", "早醒", "焦虑", "抑郁", "情绪低落"])) {
+    result.push(allGuides.find((g) => g.slug === "shimian-gua-shenme-ke")!);
+  }
+
+  if (result.length === 0) {
+    if ((item.tags ?? []).some((t) => ["呼吸", "耳鼻喉"].includes(t))) {
+      result.push(allGuides.find((g) => g.slug === "kesou-gua-shenme-ke")!);
+    }
+    if ((item.tags ?? []).some((t) => ["消化"].includes(t))) {
+      result.push(allGuides.find((g) => g.slug === "weitong-gua-shenme-ke")!);
+    }
+    if ((item.tags ?? []).some((t) => ["神经"].includes(t))) {
+      result.push(allGuides.find((g) => g.slug === "touyun-gua-shenme-ke")!);
+    }
+    if ((item.tags ?? []).some((t) => ["心理"].includes(t))) {
+      result.push(allGuides.find((g) => g.slug === "shimian-gua-shenme-ke")!);
+    }
+    if ((item.tags ?? []).some((t) => ["心脏"].includes(t))) {
+      result.push(allGuides.find((g) => g.slug === "xiongmen-gua-shenme-ke")!);
+    }
+  }
+
+  return Array.from(new Map(result.map((g) => [g.slug, g])).values()).slice(0, 4);
+}
+
 export default async function SymptomDetailPage({
   params,
 }: {
@@ -35,7 +143,6 @@ export default async function SymptomDetailPage({
   const item = symptoms.find((x) => x.slug === slug);
   if (!item) return notFound();
 
-  // —— 相关科室（按科室名匹配 departments.name）
   const deptNames = Array.from(
     new Set([...(item.recommended ?? []), ...(item.alternatives ?? [])])
   );
@@ -44,13 +151,13 @@ export default async function SymptomDetailPage({
     .filter((d) => deptNames.includes(d.name))
     .slice(0, 6);
 
-  // —— 相关症状：同标签
   const relatedSymptoms = symptoms
     .filter((s) => s.slug !== item.slug)
     .filter((s) => s.tags?.some((t: string) => item.tags?.includes(t)))
     .slice(0, 12);
 
-  // —— GEO：AI 友好摘要（让 AI 一眼读懂“结论 + 急诊信号 + 免责声明”）
+  const relatedGuides = getRelatedGuides(item);
+
   const aiSummary = `${item.title}：通常建议优先挂${(item.recommended ?? []).join(
     "、"
   )}${(item.alternatives ?? []).length ? `；也可考虑${(item.alternatives ?? []).join("、")}` : ""}。${
@@ -59,7 +166,6 @@ export default async function SymptomDetailPage({
       : "如症状严重或快速加重，请尽快就医。"
   }本页面仅用于导诊分流与就诊准备，不提供诊断与治疗方案。`;
 
-  // —— JSON-LD：MedicalSymptom + FAQPage（如果有）
   const symptomJsonLd = {
     "@context": "https://schema.org",
     "@type": "MedicalSymptom",
@@ -85,7 +191,6 @@ export default async function SymptomDetailPage({
         }
       : null;
 
-  // （可选加强）把 AI Summary 也用 WebPage 的结构化数据暴露给搜索/AI
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -112,12 +217,10 @@ export default async function SymptomDetailPage({
       ) : null}
 
       <main className="mx-auto max-w-4xl p-6 space-y-6">
-        {/* 顶部标题 */}
         <header className="space-y-2">
           <h1 className="text-3xl font-semibold">{item.title}</h1>
           <p className="text-slate-600">{item.summary}</p>
 
-          {/* ✅ GEO：AI Summary Block（症状页核心） */}
           <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 space-y-2">
             <div className="text-sm font-semibold text-emerald-900">
               快速结论（可直接引用）
@@ -128,7 +231,6 @@ export default async function SymptomDetailPage({
             </div>
           </section>
 
-          {/* 重要：红色急诊提示 */}
           {Array.isArray(item.redFlags) && item.redFlags.length > 0 ? (
             <div className="rounded-2xl border border-red-200 bg-red-50 p-4">
               <div className="text-lg font-semibold text-red-700">
@@ -142,7 +244,6 @@ export default async function SymptomDetailPage({
             </div>
           ) : null}
 
-          {/* 主按钮 */}
           <div className="flex flex-wrap gap-2 pt-1">
             <Link
               href="/triage"
@@ -165,7 +266,24 @@ export default async function SymptomDetailPage({
           </div>
         </header>
 
-        {/* 推荐科室 */}
+        {relatedGuides.length > 0 ? (
+          <section className="rounded-2xl border p-4 space-y-3">
+            <h2 className="text-xl font-semibold">相关导诊指南</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {relatedGuides.map((g) => (
+                <Link
+                  key={g.slug}
+                  href={`/guides/${g.slug}`}
+                  className="rounded-xl border p-3 hover:bg-slate-50"
+                >
+                  <div className="font-medium">{g.title}</div>
+                  <div className="text-sm text-slate-600 mt-1">{g.summary}</div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <section className="rounded-2xl border p-4 space-y-3">
           <h2 className="text-xl font-semibold">建议挂什么科</h2>
 
@@ -206,7 +324,6 @@ export default async function SymptomDetailPage({
           ) : null}
         </section>
 
-        {/* 就诊准备 */}
         {Array.isArray(item.prep) && item.prep.length > 0 ? (
           <section className="rounded-2xl border p-4 space-y-2">
             <h2 className="text-lg font-semibold">就诊准备</h2>
@@ -218,7 +335,6 @@ export default async function SymptomDetailPage({
           </section>
         ) : null}
 
-        {/* 常见问答 */}
         {Array.isArray(item.faqs) && item.faqs.length > 0 ? (
           <section className="rounded-2xl border p-4 space-y-3">
             <h2 className="text-lg font-semibold">常见问答</h2>
@@ -233,7 +349,6 @@ export default async function SymptomDetailPage({
           </section>
         ) : null}
 
-        {/* 相关症状（同标签内链） */}
         {relatedSymptoms.length > 0 ? (
           <section className="rounded-2xl border p-4 space-y-3">
             <h2 className="text-lg font-semibold">相关症状（推荐继续看）</h2>

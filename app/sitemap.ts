@@ -15,16 +15,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  const guideSlugs = [
-    "ganmao-gua-shenme-ke",
-    "fashao-gua-shenme-ke",
-    "kesou-gua-shenme-ke",
-    "toutong-gua-shenme-ke",
-    "weitong-gua-shenme-ke",
-    "xiongmen-gua-shenme-ke",
-    "touyun-gua-shenme-ke",
-    "shimian-gua-shenme-ke",
-  ];
+const guideSlugs = [
+  "ganmao-gua-shenme-ke",
+  "fashao-gua-shenme-ke",
+  "kesou-gua-shenme-ke",
+  "toutong-gua-shenme-ke",
+  "weitong-gua-shenme-ke",
+  "xiongmen-gua-shenme-ke",
+  "touyun-gua-shenme-ke",
+  "shimian-gua-shenme-ke",
+  "bisai-gua-shenme-ke",
+  "houlongtong-gua-shenme-ke",
+  "futong-gua-shenme-ke",
+  "xinhuang-gua-shenme-ke",
+  "liubiti-gua-shenme-ke",
+  "huxikunnan-gua-shenme-ke",
+  "fansuan-gua-shenme-ke",
+  "fuxie-gua-shenme-ke",
+  "piantoutong-gua-shenme-ke",
+  "jiaolv-gua-shenme-ke",
+  "yiyu-gua-shenme-ke",
+  "xiongtong-gua-shenme-ke",
+];
 
   const guidePages = guideSlugs.map((slug) => ({
     url: `${baseUrl}/guides/${slug}`,
