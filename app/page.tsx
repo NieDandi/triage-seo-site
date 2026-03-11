@@ -105,6 +105,72 @@ export default function Home() {
         </section>
 
         <section className="rounded-xl border p-4 space-y-3">
+          <h2 className="text-xl font-semibold">热门导诊指南</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <Link
+              href="/guides/ganmao-gua-shenme-ke"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">感冒挂什么科</div>
+              <div className="text-sm text-slate-600 mt-1">
+                普通感冒一般可先看全科医学科、呼吸内科或耳鼻喉科。
+              </div>
+            </Link>
+
+            <Link
+              href="/guides/fashao-gua-shenme-ke"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">发烧挂什么科</div>
+              <div className="text-sm text-slate-600 mt-1">
+                发热通常可先看感染科、全科医学科或综合内科。
+              </div>
+            </Link>
+
+            <Link
+              href="/guides/kesou-gua-shenme-ke"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">咳嗽挂什么科</div>
+              <div className="text-sm text-slate-600 mt-1">
+                咳嗽一般优先看呼吸内科，也可结合耳鼻喉科方向判断。
+              </div>
+            </Link>
+
+            <Link
+              href="/guides/xiongmen-gua-shenme-ke"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">胸闷挂什么科</div>
+              <div className="text-sm text-slate-600 mt-1">
+                胸闷通常优先考虑心内科或呼吸内科。
+              </div>
+            </Link>
+
+            <Link
+              href="/guides/futong-gua-shenme-ke"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">腹痛挂什么科</div>
+              <div className="text-sm text-slate-600 mt-1">
+                腹痛一般优先看消化内科，也可能涉及普通外科。
+              </div>
+            </Link>
+
+            <Link
+              href="/guides/xinhuang-gua-shenme-ke"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">心慌挂什么科</div>
+              <div className="text-sm text-slate-600 mt-1">
+                心慌一般优先看心内科，也可能结合心理或内分泌方向判断。
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        <section className="rounded-xl border p-4 space-y-3">
           <h2 className="text-xl font-semibold">热门问题</h2>
           <ul className="list-disc pl-5 space-y-1">
             {hot.map((s) => (
