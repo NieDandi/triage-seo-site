@@ -83,7 +83,7 @@ const guides = [
     summary: "心慌一般优先看心内科，也可能结合内分泌或心理方向判断。",
     tags: ["心脏", "心理"],
   },
-    {
+  {
     slug: "liubiti-gua-shenme-ke",
     title: "流鼻涕挂什么科",
     summary: "流鼻涕一般优先看耳鼻喉科，也可结合呼吸内科判断。",
@@ -186,6 +186,40 @@ const recommendedTopics = [
   },
 ];
 
+const guideGroups = [
+  {
+    key: "respiratory",
+    title: "呼吸 / 耳鼻喉",
+    desc: "适合感冒、鼻塞、流鼻涕、喉咙痛、咳嗽、呼吸困难等问题。",
+    match: (g: (typeof guides)[number]) =>
+      g.tags.includes("呼吸") || g.tags.includes("耳鼻喉"),
+  },
+  {
+    key: "digestive",
+    title: "消化",
+    desc: "适合胃痛、腹痛、反酸、腹泻等消化系统问题。",
+    match: (g: (typeof guides)[number]) => g.tags.includes("消化"),
+  },
+  {
+    key: "neuro",
+    title: "神经",
+    desc: "适合头痛、偏头痛、头晕等神经系统相关问题。",
+    match: (g: (typeof guides)[number]) => g.tags.includes("神经"),
+  },
+  {
+    key: "mental",
+    title: "心理",
+    desc: "适合失眠、焦虑、抑郁等心理和情绪相关问题。",
+    match: (g: (typeof guides)[number]) => g.tags.includes("心理"),
+  },
+  {
+    key: "cardio",
+    title: "心脏",
+    desc: "适合胸闷、胸痛、心慌等心血管相关问题。",
+    match: (g: (typeof guides)[number]) => g.tags.includes("心脏"),
+  },
+];
+
 export default function GuidesPage() {
   const aiSummary =
     "本页面汇总感冒、发烧、咳嗽、头痛、胃痛、胸闷、失眠、头晕等高频导诊问题，帮助用户快速判断优先挂什么科，并提示何时应急诊或尽快线下就医。用户也可以继续进入症状页和专题页，查看更细的导诊分流信息。本网站仅用于导诊分流与就诊准备建议，不提供诊断与治疗方案。";
@@ -276,29 +310,43 @@ export default function GuidesPage() {
           </div>
         </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {guides.map((g) => (
-            <Link
-              key={g.slug}
-              href={`/guides/${g.slug}`}
-              className="rounded-2xl border p-4 hover:bg-slate-50"
-            >
-              <div className="text-lg font-semibold">{g.title}</div>
-              <div className="mt-2 text-sm text-slate-600">{g.summary}</div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {g.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700"
+        {guideGroups.map((group) => {
+          const list = guides.filter(group.match);
+          if (list.length === 0) return null;
+
+          return (
+            <section key={group.key} className="rounded-2xl border p-4 space-y-3">
+              <div>
+                <h2 className="text-xl font-semibold">{group.title}</h2>
+                <p className="mt-1 text-sm text-slate-600">{group.desc}</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {list.map((g) => (
+                  <Link
+                    key={g.slug}
+                    href={`/guides/${g.slug}`}
+                    className="rounded-2xl border p-4 hover:bg-slate-50"
                   >
-                    {tag}
-                  </span>
+                    <div className="text-lg font-semibold">{g.title}</div>
+                    <div className="mt-2 text-sm text-slate-600">{g.summary}</div>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {g.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-3 text-sm text-cyan-700">查看指南 →</div>
+                  </Link>
                 ))}
               </div>
-              <div className="mt-3 text-sm text-cyan-700">查看指南 →</div>
-            </Link>
-          ))}
-        </section>
+            </section>
+          );
+        })}
 
         <section className="rounded-2xl border p-4 space-y-3">
           <h2 className="text-xl font-semibold">推荐症状入口</h2>
@@ -329,14 +377,6 @@ export default function GuidesPage() {
                 <div className="text-sm text-slate-600 mt-1">{t.summary}</div>
               </Link>
             ))}
-          </div>
-        </section>
-
-        <section className="rounded-2xl border p-4 space-y-3">
-          <h2 className="text-xl font-semibold">本页面适合解决什么问题？</h2>
-          <div className="text-sm text-slate-700 leading-7">
-            当你已经不是只想看单个症状，而是想直接知道“感冒挂什么科”“发烧挂什么科”“胸闷挂什么科”这类高频问题时，
-            可以优先从导诊指南进入。导诊指南更适合作为快速答案入口，而症状页更适合继续查看具体症状、危险信号、就诊准备与常见问答。
           </div>
         </section>
 
