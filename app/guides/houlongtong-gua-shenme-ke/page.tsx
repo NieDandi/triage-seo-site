@@ -135,6 +135,32 @@ export default function GuideHoulongtongPage() {
 
         <GuideMoreLinks symptoms={recommendedSymptoms} topics={recommendedTopics} />
 
+        <section className="rounded-2xl border p-4 space-y-3">
+          <h2 className="text-lg font-semibold">推荐专题入口</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <Link
+              href="/topics?tag=耳鼻喉"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">耳鼻喉专题</div>
+              <div className="text-sm text-slate-600 mt-1">
+                查看鼻塞、流鼻涕、喉咙痛、耳鸣等相关症状入口。
+              </div>
+            </Link>
+
+            <Link
+              href="/topics?tag=呼吸"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">呼吸专题</div>
+              <div className="text-sm text-slate-600 mt-1">
+                查看咳嗽、咽痛、气短、胸闷等相关症状入口。
+              </div>
+            </Link>
+          </div>
+        </section>
+
         <footer className="text-xs text-slate-500">
           免责声明：本页面仅用于导诊分流与就医准备建议，不提供诊断与治疗方案。
         </footer>

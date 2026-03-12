@@ -171,6 +171,72 @@ export default function Home() {
         </section>
 
         <section className="rounded-xl border p-4 space-y-3">
+          <h2 className="text-xl font-semibold">按专题快速进入</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <Link
+              href="/topics?tag=呼吸"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">呼吸专题</div>
+              <div className="text-sm text-slate-600 mt-1">
+                查看咳嗽、气短、胸闷、呼吸困难等相关症状入口。
+              </div>
+            </Link>
+
+            <Link
+              href="/topics?tag=耳鼻喉"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">耳鼻喉专题</div>
+              <div className="text-sm text-slate-600 mt-1">
+                查看鼻塞、流鼻涕、喉咙痛、耳鸣等相关症状入口。
+              </div>
+            </Link>
+
+            <Link
+              href="/topics?tag=消化"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">消化专题</div>
+              <div className="text-sm text-slate-600 mt-1">
+                查看胃痛、腹痛、腹泻、反酸、恶心等相关症状入口。
+              </div>
+            </Link>
+
+            <Link
+              href="/topics?tag=神经"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">神经专题</div>
+              <div className="text-sm text-slate-600 mt-1">
+                查看头痛、头晕、手麻、记忆力下降等相关症状入口。
+              </div>
+            </Link>
+
+            <Link
+              href="/topics?tag=心理"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">心理专题</div>
+              <div className="text-sm text-slate-600 mt-1">
+                查看焦虑、失眠、情绪低落等相关症状入口。
+              </div>
+            </Link>
+
+            <Link
+              href="/topics?tag=心脏"
+              className="rounded-xl border p-3 hover:bg-slate-50"
+            >
+              <div className="font-medium">心脏专题</div>
+              <div className="text-sm text-slate-600 mt-1">
+                查看胸闷、胸痛、心慌、心跳快等相关症状入口。
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        <section className="rounded-xl border p-4 space-y-3">
           <h2 className="text-xl font-semibold">热门问题</h2>
           <ul className="list-disc pl-5 space-y-1">
             {hot.map((s) => (
