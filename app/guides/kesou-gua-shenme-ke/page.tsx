@@ -182,7 +182,7 @@ export default function GuideKesouPage() {
                 <GuideMoreLinks
                     symptoms={recommendedSymptoms}
                     topics={recommendedTopics}
-                    keyword="kesou"
+                    guideSlug="kesou-gua-shenme-ke"
                 />
 
                 <section className="rounded-2xl border p-4 space-y-3">
