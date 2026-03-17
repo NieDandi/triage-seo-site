@@ -1,11 +1,10 @@
 import { MetadataRoute } from "next";
 import { symptoms } from "@/data/symptoms";
 import { departments } from "@/data/departments";
-import { faqs } from "@/data/faqs"; // ✅ 新增
+import { faqs } from "@/data/faqs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://triage-seo-site.vercel.app";
-
   const now = new Date();
 
   const symptomPages = symptoms.map((s) => ({
@@ -46,20 +45,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }));
 
-  // ✅ 新增 FAQ 页面
   const faqPages = faqs.map((item) => ({
     url: `${baseUrl}/faq/${item.slug}`,
     lastModified: now,
   }));
 
   return [
-    // 首页
     {
       url: baseUrl,
       lastModified: now,
     },
-
-    // 栏目页
     {
       url: `${baseUrl}/guides`,
       lastModified: now,
@@ -81,14 +76,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
     },
     {
-      url: `${baseUrl}/faq`, // ✅ FAQ列表页
+      url: `${baseUrl}/faq`,
       lastModified: now,
     },
-
-    // 详情页
     ...guidePages,
     ...symptomPages,
     ...departmentPages,
-    ...faqPages, // ✅ FAQ详情页
+    ...faqPages,
   ];
 }
