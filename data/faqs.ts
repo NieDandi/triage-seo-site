@@ -302,4 +302,159 @@ export const faqs: FAQItem[] = [
         question: "发烧全身酸痛看什么科？",
         shortAnswer: "发烧伴全身酸痛可先看内科，多与感染有关。",
     },
+    {
+        slug: "kesou-kan-erbihou-ma",
+        question: "咳嗽可以看耳鼻喉科吗？",
+        shortAnswer: "如果咳嗽同时伴有咽痛、鼻塞、流鼻涕等症状，也可以结合耳鼻喉科判断。",
+    },
+    {
+        slug: "kesou-youxiongmen-kan-shenme-ke",
+        question: "咳嗽伴胸闷看什么科？",
+        shortAnswer: "咳嗽伴胸闷通常建议先看呼吸内科，如症状明显或加重应及时就医。",
+    },
+    {
+        slug: "kesou-youfashao-kan-shenme-ke",
+        question: "咳嗽伴发烧看什么科？",
+        shortAnswer: "咳嗽伴发烧一般建议看内科或呼吸内科，多与呼吸道感染有关。",
+    },
+    {
+        slug: "kesou-youhoutong-kan-shenme-ke",
+        question: "咳嗽伴喉咙痛看什么科？",
+        shortAnswer: "咳嗽伴喉咙痛可考虑呼吸内科或耳鼻喉科，需结合具体症状判断。",
+    },
+    {
+        slug: "fanfu-kesou-kan-shenme-ke",
+        question: "反复咳嗽看什么科？",
+        shortAnswer: "反复咳嗽建议优先看呼吸内科，尤其是持续时间较长或反复发作时。",
+    },
+
+    {
+        slug: "toutong-kan-neike-haishi-shenjingke",
+        question: "头痛看内科还是神经科？",
+        shortAnswer: "多数头痛建议优先看神经内科，必要时再结合内科或其他科室评估。",
+    },
+    {
+        slug: "toutong-youfashao-kan-shenme-ke",
+        question: "头痛伴发烧看什么科？",
+        shortAnswer: "头痛伴发烧一般先看内科，若症状明显或持续不缓解应尽快就医。",
+    },
+    {
+        slug: "changnian-toutong-kan-shenme-ke",
+        question: "常年头痛看什么科？",
+        shortAnswer: "长期或反复头痛通常建议看神经内科，进一步明确原因。",
+    },
+    {
+        slug: "toutong-yinggai-kan-jizhen-ma",
+        question: "头痛需要看急诊吗？",
+        shortAnswer: "如果是突发剧烈头痛，或伴随呕吐、意识异常、肢体无力，应尽快去急诊。",
+    },
+    {
+        slug: "ganmao-houtoutong-kan-shenme-ke",
+        question: "感冒后头痛看什么科？",
+        shortAnswer: "感冒后头痛通常先看内科或全科，多与感染或鼻窦不适有关。",
+    },
+
+    {
+        slug: "weitong-xuyao-qu-jizhen-ma",
+        question: "胃痛需要去急诊吗？",
+        shortAnswer: "如果胃痛剧烈、持续加重，或伴随呕血、黑便、明显虚弱，应及时去急诊。",
+    },
+    {
+        slug: "weitong-yououxin-kan-shenme-ke",
+        question: "胃痛伴呕心看什么科？",
+        shortAnswer: "胃痛伴恶心通常建议看消化内科，必要时进一步检查胃部或消化系统问题。",
+    },
+    {
+        slug: "weitong-yeban-fazuo-kan-shenme-ke",
+        question: "胃痛夜里发作看什么科？",
+        shortAnswer: "夜间胃痛一般建议先看消化内科，如果疼痛明显或反复发作应尽快就医。",
+    },
+    {
+        slug: "fanhou-fuzhang-weitong-kan-shenme-ke",
+        question: "饭后腹胀胃痛看什么科？",
+        shortAnswer: "饭后腹胀伴胃痛通常建议看消化内科，多与胃肠功能或消化问题有关。",
+    },
+    {
+        slug: "laoweibushufu-kan-shenme-ke",
+        question: "老胃不舒服看什么科？",
+        shortAnswer: "长期胃部不适通常建议看消化内科，方便系统评估原因。",
+    },
+
+    {
+        slug: "xiongtong-xiankan-nage-ke",
+        question: "胸痛先看哪个科？",
+        shortAnswer: "胸痛一般优先考虑心内科；如果疼痛剧烈、突然发生，应尽快就医或看急诊。",
+    },
+    {
+        slug: "xiongmen-youxinhuang-kan-shenme-ke",
+        question: "胸闷伴心慌看什么科？",
+        shortAnswer: "胸闷伴心慌通常建议先看心内科，也可结合内科进一步评估。",
+    },
+    {
+        slug: "xiongmen-youqichuan-kan-shenme-ke",
+        question: "胸闷伴气喘看什么科？",
+        shortAnswer: "胸闷伴气喘可考虑呼吸内科或心内科，如呼吸困难明显应尽快就医。",
+    },
+    {
+        slug: "xiongtong-shi-kan-xinneike-ma",
+        question: "胸痛是看心内科吗？",
+        shortAnswer: "很多胸痛可先看心内科，尤其是位于胸前区、伴胸闷或心慌时。",
+    },
+    {
+        slug: "xinhuang-xian-kan-nage-ke",
+        question: "心慌先看哪个科？",
+        shortAnswer: "心慌通常可以先看心内科，医生会进一步判断是否与心律或情绪有关。",
+    },
+
+    {
+        slug: "touyun-xian-kan-nage-ke",
+        question: "头晕先看哪个科？",
+        shortAnswer: "头晕通常建议先看神经内科，也可根据伴随症状结合内科或耳鼻喉科判断。",
+    },
+    {
+        slug: "touyun-banyunexin-kan-shenme-ke",
+        question: "头晕伴恶心看什么科？",
+        shortAnswer: "头晕伴恶心一般可先看神经内科，必要时再结合其他科室评估。",
+    },
+    {
+        slug: "touyun-zhandebuwen-kan-shenme-ke",
+        question: "头晕站都站不稳看什么科？",
+        shortAnswer: "头晕严重到站立不稳时，建议尽快就医，优先考虑神经内科或急诊。",
+    },
+    {
+        slug: "touyun-banerduoming-kan-shenme-ke",
+        question: "头晕伴耳鸣看什么科？",
+        shortAnswer: "头晕伴耳鸣可考虑神经内科或耳鼻喉科，需结合具体情况判断。",
+    },
+    {
+        slug: "changqi-touyun-kan-shenme-ke",
+        question: "长期头晕看什么科？",
+        shortAnswer: "长期头晕建议先看神经内科，必要时进一步检查原因。",
+    },
+
+    {
+        slug: "fashao-xian-kan-nage-ke",
+        question: "发烧先看哪个科？",
+        shortAnswer: "发烧一般可以先看内科或全科，如果伴随咳嗽等呼吸道症状，也可考虑呼吸内科。",
+    },
+    {
+        slug: "gaore-buixia-qu-kan-shenme-ke",
+        question: "高热不退看什么科？",
+        shortAnswer: "高热不退建议尽快就医，通常优先看内科，症状严重时考虑急诊。",
+    },
+    {
+        slug: "fashao-banquanshensuantong-kan-shenme-ke",
+        question: "发烧伴全身酸痛看什么科？",
+        shortAnswer: "发烧伴全身酸痛一般先看内科，多与感染有关。",
+    },
+    {
+        slug: "fashao-ban-huxikunnan-kan-shenme-ke",
+        question: "发烧伴呼吸困难看什么科？",
+        shortAnswer: "发烧伴呼吸困难应尽快就医，优先考虑急诊或呼吸内科。",
+    },
+    {
+        slug: "fashao-ban-houtong-kan-shenme-ke",
+        question: "发烧伴喉咙痛看什么科？",
+        shortAnswer: "发烧伴喉咙痛可先看内科或耳鼻喉科，多与感染有关。",
+    }
 ];
