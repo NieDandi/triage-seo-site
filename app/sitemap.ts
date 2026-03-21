@@ -1,87 +1,82 @@
-import { MetadataRoute } from "next";
-import { symptoms } from "@/data/symptoms";
-import { departments } from "@/data/departments";
-import { faqs } from "@/data/faqs";
+import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://triage-seo-site.vercel.app";
+const baseUrl = "https://triage-seo-site.vercel.app";
+
+export async function generateSitemaps() {
+  return [{ id: "0" }, { id: "1" }, { id: "2" }, { id: "3" }];
+}
+
+export default async function sitemap(props: {
+  id: Promise<string>;
+}): Promise<MetadataRoute.Sitemap> {
+  const id = await props.id;
   const now = new Date();
 
-  const symptomPages = symptoms.map((s) => ({
-    url: `${baseUrl}/symptom/${s.slug}`,
-    lastModified: now,
-  }));
+  switch (id) {
+    case "0": {
+      const guideSlugs = [
+        "ganmao-gua-shenme-ke",
+        "fashao-gua-shenme-ke",
+        "kesou-gua-shenme-ke",
+        "toutong-gua-shenme-ke",
+        "weitong-gua-shenme-ke",
+        "xiongmen-gua-shenme-ke",
+        "touyun-gua-shenme-ke",
+        "shimian-gua-shenme-ke",
+        "bisai-gua-shenme-ke",
+        "houlongtong-gua-shenme-ke",
+        "futong-gua-shenme-ke",
+        "xinhuang-gua-shenme-ke",
+        "liubiti-gua-shenme-ke",
+        "huxikunnan-gua-shenme-ke",
+        "fansuan-gua-shenme-ke",
+        "fuxie-gua-shenme-ke",
+        "piantoutong-gua-shenme-ke",
+        "jiaolv-gua-shenme-ke",
+        "yiyu-gua-shenme-ke",
+        "xiongtong-gua-shenme-ke",
+      ];
 
-  const departmentPages = departments.map((d) => ({
-    url: `${baseUrl}/department/${d.slug}`,
-    lastModified: now,
-  }));
+      return [
+        { url: baseUrl, lastModified: now },
+        { url: `${baseUrl}/guides`, lastModified: now },
+        { url: `${baseUrl}/topics`, lastModified: now },
+        { url: `${baseUrl}/symptoms`, lastModified: now },
+        { url: `${baseUrl}/departments`, lastModified: now },
+        { url: `${baseUrl}/triage`, lastModified: now },
+        { url: `${baseUrl}/faq`, lastModified: now },
+        ...guideSlugs.map((slug) => ({
+          url: `${baseUrl}/guides/${slug}`,
+          lastModified: now,
+        })),
+      ];
+    }
 
-  const guideSlugs = [
-    "ganmao-gua-shenme-ke",
-    "fashao-gua-shenme-ke",
-    "kesou-gua-shenme-ke",
-    "toutong-gua-shenme-ke",
-    "weitong-gua-shenme-ke",
-    "xiongmen-gua-shenme-ke",
-    "touyun-gua-shenme-ke",
-    "shimian-gua-shenme-ke",
-    "bisai-gua-shenme-ke",
-    "houlongtong-gua-shenme-ke",
-    "futong-gua-shenme-ke",
-    "xinhuang-gua-shenme-ke",
-    "liubiti-gua-shenme-ke",
-    "huxikunnan-gua-shenme-ke",
-    "fansuan-gua-shenme-ke",
-    "fuxie-gua-shenme-ke",
-    "piantoutong-gua-shenme-ke",
-    "jiaolv-gua-shenme-ke",
-    "yiyu-gua-shenme-ke",
-    "xiongtong-gua-shenme-ke",
-  ];
+    case "1": {
+      const { symptoms } = await import("@/data/symptoms");
+      return symptoms.map((s) => ({
+        url: `${baseUrl}/symptom/${s.slug}`,
+        lastModified: now,
+      }));
+    }
 
-  const guidePages = guideSlugs.map((slug) => ({
-    url: `${baseUrl}/guides/${slug}`,
-    lastModified: now,
-  }));
+    case "2": {
+      const { departments } = await import("@/data/departments");
+      return departments.map((d) => ({
+        url: `${baseUrl}/department/${d.slug}`,
+        lastModified: now,
+      }));
+    }
 
-  const faqPages = faqs.map((item) => ({
-    url: `${baseUrl}/faq/${item.slug}`,
-    lastModified: now,
-  }));
+    case "3": {
+      const { faqs } = await import("@/data/faqs");
+      return faqs.map((item) => ({
+        url: `${baseUrl}/faq/${item.slug}`,
+        lastModified: now,
+      }));
+    }
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: now,
-    },
-    {
-      url: `${baseUrl}/guides`,
-      lastModified: now,
-    },
-    {
-      url: `${baseUrl}/topics`,
-      lastModified: now,
-    },
-    {
-      url: `${baseUrl}/symptoms`,
-      lastModified: now,
-    },
-    {
-      url: `${baseUrl}/departments`,
-      lastModified: now,
-    },
-    {
-      url: `${baseUrl}/triage`,
-      lastModified: now,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: now,
-    },
-    ...guidePages,
-    ...symptomPages,
-    ...departmentPages,
-    ...faqPages,
-  ];
+    default:
+      return [];
+  }
 }
