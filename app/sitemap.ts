@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const baseUrl = "https://triage-seo-site.vercel.app";
 
 export async function generateSitemaps() {
-  return [{ id: "0" }, { id: "1" }, { id: "2" }, { id: "3" }];
+  return [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }];
 }
 
 export default async function sitemap(props: {
@@ -35,6 +35,20 @@ export default async function sitemap(props: {
         "jiaolv-gua-shenme-ke",
         "yiyu-gua-shenme-ke",
         "xiongtong-gua-shenme-ke",
+        "shengyin-siya-gua-shenme-ke",
+        "bizi-yang-gua-shenme-ke",
+        "weizhang-gua-shenme-ke",
+        "shouma-gua-shenme-ke",
+        "xintiao-kuai-gua-shenme-ke",
+        "xintiao-man-gua-shenme-ke",
+        "toupifama-gua-shenme-ke",
+        "jiyili-xiajiang-gua-shenme-ke",
+        "weisuan-gua-shenme-ke",
+        "heibian-gua-shenme-ke",
+        "bianmi-gua-shenme-ke",
+        "exin-gua-shenme-ke",
+        "dapenqi-gua-shenme-ke",
+        "houlong-yiwugan-gua-shenme-ke",
       ];
 
       return [
